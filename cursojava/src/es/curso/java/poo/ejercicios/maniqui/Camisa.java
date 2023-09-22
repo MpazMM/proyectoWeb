@@ -4,11 +4,11 @@ public class Camisa {
 	
 	private long id;
 	private String color;
-	private String talla;
+	private int talla;
 	private double precio;
 	private Boton [] boton;
 	
-	public Camisa(long id, String color, String talla, double precio, Boton[] boton) {
+	public Camisa(long id, String color, int talla, double precio, Boton[] boton) {
 		super();
 		this.id = id;
 		this.color = color;
@@ -33,11 +33,11 @@ public class Camisa {
 		this.color = color;
 	}
 
-	public String getTalla() {
+	public int getTalla() {
 		return talla;
 	}
 
-	public void setTalla(String talla) {
+	public void setTalla(int talla) {
 		this.talla = talla;
 	}
 

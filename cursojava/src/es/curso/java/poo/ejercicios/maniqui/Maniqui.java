@@ -7,10 +7,25 @@ public class Maniqui {
 	private Pantalon pantalon;
 	private Camisa camisa;
 	
-	public Maniqui(long id, Vestido vestido, Pantalon pantalon, Camisa camisa) {
+	
+	public Maniqui(long id) {
+		super();
+		this.id = id;
+	}
+	
+	
+
+	public Maniqui(long id, Vestido vestido) {
 		super();
 		this.id = id;
 		this.vestido = vestido;
+	}
+
+
+
+	public Maniqui(long id, Pantalon pantalon, Camisa camisa) {
+		super();
+		this.id = id;
 		this.pantalon = pantalon;
 		this.camisa = camisa;
 	}
@@ -60,10 +75,12 @@ public class Maniqui {
 	//Sobrecarga de método, poner en uno vestido
 	//Poner en el otro pantalón y camisa
 	public void vestir (Vestido vestido) {
+		desvestir();
 		this.vestido = vestido;
 	}
 	
 	public void vestir (Pantalon pantalon, Camisa camisa) {
+		desvestir();
 		this.pantalon = pantalon;
 		this.camisa = camisa;
 	}
