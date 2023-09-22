@@ -49,12 +49,24 @@ public class Maniqui {
 	
 	//Métodos
 	
-	public void desvestir (Vestido vestido, Pantalon pantalon, Camisa camisa) {
-		
+	public void desvestir () {
+		this.vestido = null;
+		this.pantalon = null;
+		this.camisa = null;
+		System.out.println("El maniquí está desvestido");
 	}
 	
-	public void vestir (Vestido vestido, Pantalon pantalon, Camisa camisa) {
-		
+	
+	//Sobrecarga de método, poner en uno vestido
+	//Poner en el otro pantalón y camisa
+	public void vestir (Vestido vestido) {
+		this.vestido = vestido;
+		System.out.println (vestido);
+	}
+	
+	public void vestir (Pantalon pantalon, Camisa camisa) {
+		this.pantalon = pantalon;
+		this.camisa = camisa;
 	}
 	
 }
