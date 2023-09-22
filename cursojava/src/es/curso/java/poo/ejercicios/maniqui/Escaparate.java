@@ -27,7 +27,6 @@ public class Escaparate {
 		Maniqui maniqui1 = new Maniqui(9,vestido1, null, null);
 		Maniqui maniqui2 = new Maniqui(10,null, null, null);
 		
-		System.out.println(maniqui1.getVestido().getColor() +" " + maniqui1.getId());
 		
 		maniqui1.desvestir();
 		maniqui1.vestir (pantalon1,camisa2);
@@ -46,7 +45,8 @@ public class Escaparate {
 	//Mostrar escaparate
 	public void mostrarEscaparate (Maniqui [] maniquies) {
 		for (Maniqui maniqui : maniquies) {
-			double precioTotal = maniqui.getVestido().getPrecio() + maniqui.getPantalon().getPrecio() + maniqui.getCamisa().getPrecio() ;
+			
+			double precioTotal = maniqui.getVestido().getPrecio() + maniqui.getPantalon().getPrecio() + maniqui.getCamisa().getPrecio();
 			System.out.println ("El precio del escaparate es " + precioTotal);
 		}
 	}

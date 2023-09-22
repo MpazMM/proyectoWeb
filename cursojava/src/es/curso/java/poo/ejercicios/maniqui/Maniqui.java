@@ -61,7 +61,6 @@ public class Maniqui {
 	//Poner en el otro pantalón y camisa
 	public void vestir (Vestido vestido) {
 		this.vestido = vestido;
-		System.out.println (vestido);
 	}
 	
 	public void vestir (Pantalon pantalon, Camisa camisa) {
