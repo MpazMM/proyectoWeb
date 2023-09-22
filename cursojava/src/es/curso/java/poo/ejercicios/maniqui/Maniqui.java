@@ -69,4 +69,6 @@ public class Maniqui {
 		this.camisa = camisa;
 	}
 	
+	
+	
 }
