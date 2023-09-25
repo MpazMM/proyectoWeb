@@ -47,10 +47,13 @@ public class Carrera {
 	public void iniciarCarrera() {
 		
 		boolean hayGanador = false;
+		int caballoGanador = 0;
+		
 		while (!hayGanador)
 			for (Caballo cab : caballos){
 				if(this.distancia>cab.getTotalRecorrido()) {
 					cab.correr();
+					caballoGanador = this.distancia<=cab.getTotalRecorrido();
 					hayGanador = true;
 					break;
 				}
