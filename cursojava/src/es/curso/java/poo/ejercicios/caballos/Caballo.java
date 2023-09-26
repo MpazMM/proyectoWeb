@@ -71,7 +71,7 @@ public class Caballo {
 	//Método correr
 	public void correr () {
 		double totalRecorrido = this.velocidad*((Math.random()*20)+10) - this.peso*((Math.random()*3)+1) - this.edad*this.peso*((Math.random()*3)+1);
-		totalRecorrido += totalRecorrido > 0 ? totalRecorrido : 0;
+		this.totalRecorrido += totalRecorrido > 0 ? totalRecorrido : 0;
 	}
 	
 	

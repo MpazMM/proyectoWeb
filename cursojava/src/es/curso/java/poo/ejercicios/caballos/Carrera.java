@@ -44,23 +44,23 @@ public class Carrera {
 	}
 	
 	//Método iniciarCarrera
-	public void iniciarCarrera() {
+	public int iniciarCarrera() {
 		
 		boolean hayGanador = false;
-		int caballoGanador = 0;
-		
-		while (!hayGanador)
-			for (Caballo cab : caballos){
-				if(this.distancia>cab.getTotalRecorrido()) {
-					cab.correr();
-					caballoGanador = this.distancia<=cab.getTotalRecorrido();
+		Caballo caballoGanador = null;
+		System.out.println("====Empieza la carrera " + this.nombre + "====");
+		while (!hayGanador) {
+			for (Caballo caballo : caballos){
+				caballo.correr();
+				if(this.distancia<=caballo.getTotalRecorrido()) {
+					System.out.println("El caballo ganador es " + caballo.getNombre() + " con el dorsal " + caballo.getNumero());
 					hayGanador = true;
+					caballoGanador = caballo;
 					break;
 				}
-		System.out.println("El caballo ganador es " + cab.getNombre());	
-				
+			}
 		}
+		return caballoGanador.getNumero();
 		
 	}
-
 }

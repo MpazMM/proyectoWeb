@@ -5,12 +5,16 @@ public class Apostante {
 	private String nombre;
 	private double saldo;
 	private double apuesta;
+	private int dorsoApuesta;
+
 	
-	public Apostante(String nombre, double saldo, double apuesta) {
+
+	public Apostante(String nombre, double saldo, double apuesta, int dorsoApuesta) {
 		super();
 		this.nombre = nombre;
 		this.saldo = saldo;
 		this.apuesta = apuesta;
+		this.dorsoApuesta = dorsoApuesta;
 	}
 
 	public String getNombre() {
@@ -35,6 +39,10 @@ public class Apostante {
 
 	public void setApuesta(double apuesta) {
 		this.apuesta = apuesta;
+	}
+
+	public int getDorsoApuesta() {
+		return dorsoApuesta;
 	}
 	
 	
