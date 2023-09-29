@@ -24,7 +24,15 @@ public class Cajera {
 	}
 	
 	//Cobrar al cliente
-	
+	public double totalCompra(Producto[] stock, int[] compra) {
+		double total = 0;
+		
+		for(int i = 0; i < compra.length; i++) {
+			total += stock[--(compra[i])].getPrecio();
+		}
+		
+		return total;
+	}
 	
 	
 }

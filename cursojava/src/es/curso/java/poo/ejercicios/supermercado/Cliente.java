@@ -6,15 +6,16 @@ public class Cliente {
 	
 	private long idCliente;
 	private String nombreCliente;
-	private Producto [] carritoCompra;
+	private int[] carritoCompra;
 	private boolean vip;
 	
-	public Cliente(long idCliente, String nombreCliente, boolean vip) {
+	public Cliente(long idCliente, String nombreCliente, boolean vip, Producto[] productos, Cajera cajera) {
 		super();
 		this.idCliente = idCliente;
 		this.nombreCliente = nombreCliente;
-		this.carritoCompra = new Producto [5];
+		this.carritoCompra = new int[5];
 		this.vip = vip;
+		anadirProductos(productos, cajera);
 	}
 
 	public String getNombreCliente() {
@@ -25,12 +26,16 @@ public class Cliente {
 		this.nombreCliente = nombreCliente;
 	}
 
-	public Producto[] getCarritoCompra() {
+	public int[] getCarritoCompra() {
 		return carritoCompra;
 	}
 
-	public void setCarritoCompra(Producto[] carritoCompra) {
+	public void setCarritoCompra(int[] carritoCompra) {
 		this.carritoCompra = carritoCompra;
+	}
+
+	public void setIdCliente(long idCliente) {
+		this.idCliente = idCliente;
 	}
 
 	public boolean isVip() {
@@ -45,31 +50,24 @@ public class Cliente {
 		return idCliente;
 	}
 	
-	Cliente cliente1 = new Cliente (11,"Pepe",true);
-	Cliente cliente2 = new Cliente (22,"María",false);
-	
-	Cliente [] clienteCompra = {cliente1, cliente2};
-	
 	//Método añadirProductos
 
-	public void anadirProductos (Producto [] carritoCompra) {
+	public void anadirProductos (Producto[] productos, Cajera cajera) {
 		
-		boolean carritoLleno = true;
 		for (int i= 0; i < this.carritoCompra.length ; i++) {
-			if (carritoCompra[i] == null) {
-				this.carritoCompra[i] = Utilidades.pideDatoNumerico(this.nombreCliente + "¿qué producto quieres añadir al carrito?");
-				break;
-			}
-			if(carritoLleno) {
-				System.out.println("El carrito está lleno");
-			}
-			
+			this.carritoCompra[i] = Utilidades.pideDatoNumerico(this.nombreCliente + " ¿qué producto quieres añadir al carrito?");		
 		}
+		System.out.println("El carrito está lleno");
+		
+		pagar(productos, cajera);
 	}
 	
 	
 	//Método pagar
-	
+	public void pagar(Producto[] productos, Cajera cajera) {
+		double total = cajera.totalCompra(productos, carritoCompra);
+		System.out.println("Total a pagar: " + total + "\n");
+	}
 	
 
 }
