@@ -1,0 +1,38 @@
+1. Usando eclipse, crea un proyecto nuevo denominado Examen y crea un paquete que
+tenga tu nombre, apellidos y examen: “nombre.apellidos.examen” (0.5 puntos)
+
+2. Crea las siguientes clases (1.5 puntos)
+
+Plato, con los atributos:
+● nombre: (Ejemplo: filete con patatas, croquetas, paella…)
+● precio
+● disponible
+
+Bebida, con los atributos:
+● nombre
+● precio
+
+Carta, con los atributos
+● nombre: (carta de vinos, menú del día, …)
+● platos[]
+● bebidas[]
+Restaurante, con el atributo nombre.
+
+3. En la clase restaurante crear el método main donde se crean 5 Platos 
+(uno de ellos no estará disponible), 2 bebidas y 2 cartas, 
+una de las cartas tendrá tres platos y una
+bebida y la otra carta 2 platos y una bebida (1.5 puntos)
+
+4. Método que muestre el contenido de cada carta mostrando solo los platos 
+disponibles (1.5 puntos)
+
+5. Método que pida al usuario qué carta de la que tiene el restaurante desea. 
+(1.5 puntos)
+
+6. Indicar el importe de todos los productos de la carta seleccionada por 
+el usuario. (2 puntos)
+
+7. Subir el proyecto a un repositorio de Github y dejar aquí el enlace al repositorio (1.5
+puntos)
+
+
