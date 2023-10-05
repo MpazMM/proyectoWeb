@@ -2,20 +2,20 @@ package excepciones.ejercicios.temperatura;
 
 public class CoffeCup {
 
-	private int temperature;
+	private double temperature;
 
-	public CoffeCup(int temperature) {
+	public CoffeCup(double temperature) {
 		super();
 		this.temperature = temperature;
 	}
 
 	
-	public void setTemperature(int temperature) {
+	public void setTemperature(double temperature) {
 		this.temperature = temperature;
 	}
 
 
-	public int getTemperature() {
+	public double getTemperature() {
 		return temperature;
 	}
 	
