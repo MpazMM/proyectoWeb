@@ -14,6 +14,7 @@ public class Persona {
 	//ser estáticos
 	public void correr () {
 		System.out.println("La persona con nombre " + nombre + "y edad " + edad + " está corriendo");
+		//Hola
 		
 	}
 	
