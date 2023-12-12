@@ -49,4 +49,6 @@ public class Batalla {
 		gm.empezarGuerra(coche);
 		
 	}
+
+	
 }

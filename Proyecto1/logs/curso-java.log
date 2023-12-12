@@ -1,0 +1,5 @@
+20:54:25.701 [main] DEBUG curso.java.Test main - Debug
+20:54:25.702 [main] INFO  curso.java.Test main - Info
+20:54:25.703 [main] WARN  curso.java.Test main - Warning
+20:54:25.703 [main] ERROR curso.java.Test main - Error
+20:54:25.703 [main] FATAL curso.java.Test main - Fatal
