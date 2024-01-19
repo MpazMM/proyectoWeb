@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+<meta charset="utf-8">
+<title>Registro</title>
+<script type="text/javascript">
+	function enviar(){
+		nombre = document.getElementById("nombre").value;
+		alert(nombre)
+	}
+</script>
+
+</head>
+<body>
+	<form action="" method="post">
+		<fieldset>
+			<legend>Datos personales:</legend>
+            Nombre: <br> <input id="nombreUsuario" type="text" name="nombreUsuario"><br>
+            Apellidos: <br> <input id="apellidosUsuario" type="text" name="apellidosUsuario"><br>
+            DNI: <br> <input id="dniUsuario" type="text" name="dniUsuario"><br>
+            Sexo: <br> <input id="sexoUsuario" type="text" name="sexoUsuario"><br>
+            Fecha de nacimiento: <br> <input id="fechaNacimiento" type="date" name="fechaNacimiento">
+            
+		</fieldset>
+		
+        <fieldset>
+			<legend>Datos de contacto:</legend>
+			Email: <br> <input id="emailUsuario" type="text" name="emailUsuario"><br>
+            Teléfono: <br> <input id="telefono" type="number" name="telefono" maxlength="9">
+		</fieldset>
+
+        <fieldset>
+			Usuario: <br> <input id="usuario" type="text" name="usuario"><br>
+            Contraseña: <br> <input id="contrasena" type="text" name="contrasena"><br><br>
+            <button type="submit" onclick="enviar()">Enviar</button>
+		</fieldset>
+	</form>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+    <meta charset="utf-8">
+    <title>Ejemplo de diseño fluido con dos columnas</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script type="text/javascript">
+        function loadPage(page) {
+            document.getElementById("contenido").innerHTML = '<object type="text/html"  width="100%" heigth="100%" data="' + page + '"></object>';
+        }
+
+        function apagar() {
+            confirm("Quieres salir?");
+            if(respuesta){
+              alert("Adiós")
+              loadPage("adios.html")
+            }else{
+              alert("Bien!")
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="contenedor">
+
+   <!--   <div id="cabecera">
+      <p>Ejercicio 5</p>
+      <div style="float: right;">
+        <a href="javascript:void(0);" onclick="loadPage('adios.html')" title="Adiós">
+          <img src="./imagenes_ejercicio5/boton_apagado.png" onclick="apagar()" style="width: 50px; height: 50px;">
+        </a>
+      </div>
+  </div>-->
+<div id="cabecera">
+    <p>Ejercicio 5</p>
+      <a href="javascript:void(0);" onclick="loadPage('adios.html')" title="Adiós">
+        <img style="width: 50px; height: 50px; float: right;" src="./imagenes_ejercicio5/boton_apagado.png" onclick="apagar()" >
+      </a>
+</div>
+    <div id="columnas">
+        <div id="menu">
+                <p><a href="javascript:void(0);" onclick="loadPage('recetas.html')" title="recetas">Recetas</a></p>
+                <p><a href="javascript:void(0);" onclick="loadPage('ejercicio4.html')" title="Grupo de música">Grupo de música</a></p>
+        </div>
+        <div id="contenido">
+            <h1>Titulo</h1>
+            <p>Lorem ipsum...</p>
+            <img src="../3.Links_Tablas/image/html-lenguaje-de-marcado-de-hipertexto.jpg" alt="Html">
+        </div>
+    </div>
+    <div id="pie">
+        <p>©<a href="https://cftic.centrosdeformacion.empleo.madrid.org/" target="_blank">CFTIC Getafe</a> 2024</p>
+    </div>
+</div>
+</body>
+</html>

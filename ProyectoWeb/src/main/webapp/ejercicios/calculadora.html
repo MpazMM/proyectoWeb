@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        input[type="button"] {
+            width: 50px;
+            height: 50px;
+            font-size: 18px;
+        }
+
+        input[readonly] {
+            background-color: #eee;
+        }
+
+        input[type="button"][value="Resultado"] {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora</h1>
+    <table>
+        <tr>
+            <td colspan="2">
+                <p>Número</p>
+            </td>
+            <td colspan="8">
+                <input type="text" id="display" autofocus>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p>Resultado</p>
+            </td>
+            <td colspan="8">
+                <input type="text" id="displayResultado" readonly>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+            </td>
+            <td><input type="button" value="+" onclick="addToDisplay('+')"></td>
+            <td><input type="button" value="-" onclick="addToDisplay('-')"></td>
+            <td><input type="button" value="*" onclick="addToDisplay('*')"></td>
+            <td><input type="button" value="/" onclick="addToDisplay('/')"></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+            </td>
+            <td colspan="6"><input type="button" value="Resultado" onclick="showResult()"></td>
+        </tr>
+    </table>
+
+    <script>
+        let display = document.getElementById('display');
+        let displayResultado = document.getElementById('displayResultado');
+
+        function addToDisplay(value) {
+            display.value += value;
+        }
+
+        function clearDisplay() {
+            display.value = '';
+        }
+
+        function calculateResult() {
+            try {
+                return eval(display.value);
+            } catch (error) {
+                return 'Error';
+            }
+        }
+
+        function showResult() {
+            displayResultado.value = calculateResult();
+        }
+    </script>
+</body>
+</html>
