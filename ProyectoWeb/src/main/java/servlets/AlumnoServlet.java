@@ -41,7 +41,22 @@ public class AlumnoServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		System.out.println("doPost FormularioServlet");
+		String nombre = request.getParameter("nombre");
+		String apellidos = request.getParameter("apellidos");
+		String sexo = "";
+			if(request.getParameter("sexo1") != null ) {
+				sexo = "Hombre";
+			}else if(request.getParameter("sexo2") != null ) {
+				sexo = "Mujer";
+			}else {
+				sexo = "Otro";
+			}
+		String asignatura = request.getParameter("apellidos");
+		String areaTexto = request.getParameter("area_de_texto");
+		response.setContentType("text/html");
+		response.getWriter().append("<H2>Resultado: "+nombre+ " " + apellidos + " " + 
+				sexo + " " + asignatura + " " + areaTexto + "</H2>");
 		doGet(request, response);
 	}
 
