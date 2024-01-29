@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Formulario alta alumno</title>
+ <style>
+		body {
+			font-family:verdana;
+			font-size:18px;
+		}
+	</style>
+</head>
+<body>
+	<form action="" method="post">
+		Nombre: <input type="text" required="true" name="nombre" placeholder="Introduce tu nombre"
+			size="30" maxlength="10"><br>
+		Apellidos: <input type="text" required="true" name="apellidos" placeholder="Introduce tus apellidos"
+			size="30" maxlength="30"><br><br>
+	 <label for="condiciones">Indique el sexo</label><br>
+   		Hombre <input type="radio" name="sexo" value="hombre">
+        Mujer <input type="radio" name="sexo" value="mujer">
+        Otro <input type="radio" name="sexo" value="otro"><br>
+		<br> Lista de selección: <br>
+		<select name="lista_de_asignaturas">
+			<option value="opcion0">Seleccione una asignatura</option>
+			<option value="opcion1">JAVA</option>
+			<option value="opcion2">Python</option>
+			<option value="opcion3">PHP</option>
+		</select>
+		<br>
+		<br> Descripción alumno: <br>
+		<textarea name="area_de_texto" rows="7" cols="60" maxlength="600">Cuéntanos qué esperas del curso</textarea>
+		<br>
+		<br>
+		<button type="submit">Enviar</button>
+	</form>
+</body>
+</html>
