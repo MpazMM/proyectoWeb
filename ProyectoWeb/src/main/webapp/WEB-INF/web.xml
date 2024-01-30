@@ -48,10 +48,10 @@
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>AlumnoServlet</servlet-name>
-  	<url-pattern>/AlumnoServlet</url-pattern>
+  	<url-pattern>/alumnoservlet</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>AlumnoServlet</servlet-name>
-  	<url-pattern>/AlumnoFormulario</url-pattern>
+  	<url-pattern>/alumnoformulario</url-pattern>
   </servlet-mapping>
 </web-app>
