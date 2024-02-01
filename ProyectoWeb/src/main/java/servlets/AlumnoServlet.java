@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
+import jakarta.servlet.RequestDispatcher;
 
 import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletConfig;
@@ -12,6 +12,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import pojos.AlumnoFormulario;
 
 /**
  * Servlet implementation class AlumnoServlet
@@ -22,9 +23,7 @@ public class AlumnoServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * Default constructor.
-	 */
+
 	public AlumnoServlet() {
 		// TODO Auto-generated constructor stub
 	}
@@ -36,28 +35,21 @@ public class AlumnoServlet extends HttpServlet {
 		String texto = config.getInitParameter("textook");
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		System.out.println("doGet AlumnoServlet");
-		List<String> alumnos = new ArrayList();
+		List<AlumnoFormulario> alumnos = new ArrayList();
 
 		System.out.println(alumnos.size());
 		request.setAttribute("alumnoListado", alumnos);
-		RequestDispatcher red = request.getRequestDispatcher("alumnoListado.jsp");
-		red.forward(request, response); 
+		RequestDispatcher rd = request.getRequestDispatcher("alumnoListado.jsp");
+		rd.forward(request, response); 
 		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		System.out.println("doPost FormularioServlet");

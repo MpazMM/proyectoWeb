@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="java.util.List"%>
+	pageEncoding="ISO-8859-1"
+	import="java.util.List, java.util.ArrayList, pojos.AlumnoFormulario"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +9,10 @@
 </head>
 <body>
 	<h1>LISTADO ALUMNOS</h1>
-	
+
+	<%
+	List<AlumnoFormulario> alumnos = (List<AlumnoFormulario>)request.getAttribute("alumnoListado");
+	%>
 	<table>
 		<caption>Alumnos</caption>
 		<tr>
@@ -18,26 +22,19 @@
 			<th>Asignatura</th>
 			<th>Area de texto</th>
 		</tr>
-		<tr>
-			<td>uno</td>
-			<td>dos</td>
-			<td>tres</td>
-		</tr>
-		<tr>
-			<td>cuatro</td>
-			<td>cinco</td>
-			<td>seis</td>
-		</tr>
-	</table>
-	
-	
-	
-	<%
-	List<Alumno> alumnos = (List<Alumno>)request.getAttribute("listaAlumnos");
-	for (Alumno alumno: colores){
-%>
-	<p><%= color. %></p>
-<%} %>
 
+		<%
+		for (AlumnoFormulario alumno : alumnos) {
+		%><tr>
+			<td><%=alumno.getNombre()%></td>
+			<td><%=alumno.getApellidos()%></td>
+			<td><%=alumno.getSexo()%></td>
+			<td><%=alumno.getAsignatura()%></td>
+			<td><%=alumno.getAreaTexto()%></td>
+		</tr>
+		<%
+		}
+		%>
+	</table>
 </body>
 </html>
