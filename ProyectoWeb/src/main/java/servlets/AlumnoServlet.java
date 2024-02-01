@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
+
 import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
@@ -42,6 +44,14 @@ public class AlumnoServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		System.out.println("doGet AlumnoServlet");
+		List<String> alumnos = new ArrayList();
+
+		System.out.println(alumnos.size());
+		request.setAttribute("alumnoListado", alumnos);
+		RequestDispatcher red = request.getRequestDispatcher("alumnoListado.jsp");
+		red.forward(request, response); 
+		
 	}
 
 	/**
