@@ -39,14 +39,19 @@ public class AlumnoServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		System.out.println("doGet AlumnoServlet");
-		List<AlumnoFormulario> alumnos = new ArrayList();
-
-		System.out.println(alumnos.size());
+		String action = request.getParameter("action");
+	    if ("edit".equals(action)) {
+	        String nombre = (request.getParameter("nombre"));
+	        AlumnoFormulario alumno = alumnos.get(nombre);
+	        request.setAttribute("alumno", alumno);
+	        request.setAttribute("nombre", nombre); 
+	        RequestDispatcher rd = request.getRequestDispatcher("jsp/formularioAlumno.jsp");
+	        rd.forward(request, response);   
+	        } else {
 		request.setAttribute("alumnoListado", alumnos);
-		RequestDispatcher rd = request.getRequestDispatcher("alumnoListado.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("jsp/alumnoListado.jsp");
 		rd.forward(request, response); 
-		
+	        }
 	}
 
 
@@ -72,5 +77,7 @@ public class AlumnoServlet extends HttpServlet {
 		
 		doGet(request, response);
 	}
+	
+	
 
 }

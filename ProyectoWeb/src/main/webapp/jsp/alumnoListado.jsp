@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"
-	import="java.util.List, java.util.ArrayList, pojos.AlumnoFormulario"%>
+	import="java.util.List, java.util.ArrayList, pojos.AlumnoFormulario, servlets.AlumnoServlet "%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +14,6 @@
 	List<AlumnoFormulario> alumnos = (List<AlumnoFormulario>)request.getAttribute("alumnoListado");
 	%>
 	<table>
-		<caption>Alumnos</caption>
 		<tr>
 			<th>Nombre</th>
 			<th>Apellidos</th>
@@ -22,6 +21,7 @@
 			<th>Asignatura</th>
 			<th>Area de texto</th>
 		</tr>
+
 
 		<%
 		for (AlumnoFormulario alumno : alumnos) {
@@ -31,10 +31,13 @@
 			<td><%=alumno.getSexo()%></td>
 			<td><%=alumno.getAsignatura()%></td>
 			<td><%=alumno.getAreaTexto()%></td>
+			<td><a href="/ProyectoWeb/altaalumno.html"><button type="submit" action="edit">Modificar</button></a></td>
 		</tr>
 		<%
 		}
 		%>
 	</table>
+	<a href="/ProyectoWeb/altaalumno.html"><button type="submit">Añadir</button></a>
+	
 </body>
 </html>
