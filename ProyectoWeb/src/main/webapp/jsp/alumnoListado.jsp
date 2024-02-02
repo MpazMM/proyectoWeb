@@ -12,6 +12,7 @@
 
 	<%
 	List<AlumnoFormulario> alumnos = (List<AlumnoFormulario>)request.getAttribute("alumnoListado");
+	long id =0;
 	%>
 	<table>
 		<tr>
@@ -26,6 +27,7 @@
 		<%
 		for (AlumnoFormulario alumno : alumnos) {
 		%><tr>
+		    <input type="hidden" name="id" value="${alumno.id}"/>
 			<td><%=alumno.getNombre()%></td>
 			<td><%=alumno.getApellidos()%></td>
 			<td><%=alumno.getSexo()%></td>

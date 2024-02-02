@@ -2,27 +2,47 @@ package pojos;
 
 public class AlumnoFormulario {
 
+	private long id;
 	private String nombre;
 	private String apellidos;
 	private String sexo;
 	private String asignatura;
 	private String areaTexto;
-	
+
+
+
 	/**
+	 * @param id
 	 * @param nombre
 	 * @param apellidos
 	 * @param sexo
 	 * @param asignatura
 	 * @param areaTexto
 	 */
-	public AlumnoFormulario(String nombre, String apellidos, String sexo, String asignatura, String areaTexto) {
+	public AlumnoFormulario(long id, String nombre, String apellidos, String sexo, String asignatura,
+			String areaTexto) {
 		super();
+		this.id = id;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.sexo = sexo;
 		this.asignatura = asignatura;
 		this.areaTexto = areaTexto;
 	}
+	
+	
+
+	public long getId() {
+		return id;
+	}
+
+
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+
 
 	public String getNombre() {
 		return nombre;

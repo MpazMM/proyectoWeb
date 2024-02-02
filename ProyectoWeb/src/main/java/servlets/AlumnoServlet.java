@@ -36,47 +36,52 @@ public class AlumnoServlet extends HttpServlet {
 	}
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-		String action = request.getParameter("action");
-	    if ("edit".equals(action)) {
-	        String nombre = (request.getParameter("nombre"));
-	        AlumnoFormulario alumno = alumnos.get(nombre);
-	        request.setAttribute("alumno", alumno);
-	        request.setAttribute("nombre", nombre); 
-	        RequestDispatcher rd = request.getRequestDispatcher("jsp/formularioAlumno.jsp");
-	        rd.forward(request, response);   
+	   protected void doGet(HttpServletRequest request, HttpServletResponse response)
+	            throws ServletException, IOException {
+	        String action = request.getParameter("action");
+	        if ("edit".equals(action)) {
+	            // Editar alumno
+	            long id = Long.parseLong(request.getParameter("id"));
+	            AlumnoFormulario alumno = alumnos.stream().filter(a -> a.getId() == id).findFirst().orElse(null);
+	            request.setAttribute("alumno", alumno);
+	            RequestDispatcher rd = request.getRequestDispatcher("jsp/formularioAlumno.jsp");
+	            rd.forward(request, response);
 	        } else {
-		request.setAttribute("alumnoListado", alumnos);
-		RequestDispatcher rd = request.getRequestDispatcher("jsp/alumnoListado.jsp");
-		rd.forward(request, response); 
+	            // Listar alumnos
+	            request.setAttribute("alumnoListado", alumnos);
+	            RequestDispatcher rd = request.getRequestDispatcher("jsp/alumnoListado.jsp");
+	            rd.forward(request, response);
 	        }
-	}
+	    }
 
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		System.out.println("doPost FormularioServlet");
-		
-		String nombre = request.getParameter("nombre");
-		String apellidos = request.getParameter("apellidos");
-		String sexo = request.getParameter("sexo");
-		String asignatura = request.getParameter("lista_de_asignaturas");
-		String areaTexto = request.getParameter("area_de_texto");
-//		response.setContentType("text/html");
-//		response.getWriter().append("<H2>Resultado: " + nombre + " " + apellidos + " " + sexo + " " 
-//				+ asignatura + " " + areaTexto + "</H2>");
-		AlumnoFormulario alumno = new AlumnoFormulario (nombre,apellidos,sexo,asignatura,areaTexto);
-		alumnos.add(alumno);
-		response.setContentType("text/html");
-		for (AlumnoFormulario alumnoFormulario : alumnos) {	
-			response.getWriter().append("<p>Alumno " + alumnoFormulario.getNombre() + " " + alumnoFormulario.getApellidos() + " " 
-					+alumnoFormulario.getSexo() + " " + alumnoFormulario.getAsignatura() + " " + alumnoFormulario.getAreaTexto() + "</p><br>");
-		}
-		
-		doGet(request, response);
-	}
+	   protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	            throws ServletException, IOException {
+	        // Obtener datos del formulario
+	        String nombre = request.getParameter("nombre");
+	        String apellidos = request.getParameter("apellidos");
+	        String sexo = request.getParameter("sexo");
+	        String asignatura = request.getParameter("lista_de_asignaturas");
+	        String areaTexto = request.getParameter("area_de_texto");
+	        // Crear o actualizar alumno
+	        String strId = request.getParameter("id");
+	        AlumnoFormulario alumno;
+	        if (strId != null && !strId.isEmpty()) {
+	            long id = Long.parseLong(strId);
+	            alumno = alumnos.stream().filter(a -> a.getId() == id).findFirst().orElse(null);
+	            if (alumno != null) {
+	                alumno.setNombre(nombre);
+	                alumno.setApellidos(apellidos);
+	                alumno.setSexo(sexo);
+	                alumno.setAsignatura(asignatura);
+	                alumno.setAreaTexto(areaTexto);
+	            }
+	        } else {
+	            long id = alumnos.size() > 0 ? alumnos.get(alumnos.size() - 1).getId() + 1 : 1;
+	            alumno = new AlumnoFormulario(id, nombre, apellidos, sexo, asignatura, areaTexto);
+	            alumnos.add(alumno);
+	        }
+	        doGet(request, response);
+	    }
 	
 	
 
