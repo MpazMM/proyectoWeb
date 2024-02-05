@@ -63,7 +63,6 @@ public class AlumnoServlet extends HttpServlet {
 	        String asignatura = request.getParameter("lista_de_asignaturas");
 	        String areaTexto = request.getParameter("area_de_texto");
 	        // Crear o actualizar alumno
-	        String strId = request.getParameter("id");
 	        AlumnoFormulario alumno;
 	        if (strId != null && !strId.isEmpty()) {
 	            long id = Long.parseLong(strId);

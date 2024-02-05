@@ -16,7 +16,7 @@
 <body>
 	<form action="/ProyectoWeb/alumnoservlet" method="post">
 		Nombre: <input type="text" required="true" name="nombre" placeholder="Introduce tu nombre"
-			size="30" maxlength="10"><br>
+			size="30" maxlength="10" value=<% %>><br>
 		Apellidos: <input type="text" required="true" name="apellidos" placeholder="Introduce tus apellidos"
 			size="30" maxlength="30"><br><br>
 	 <label for="sexo">Indique el sexo</label><br>
@@ -32,7 +32,7 @@
 		</select>
 		<br>
 		<br> Descripción alumno: <br>
-		<textarea name="area_de_texto" rows="7" cols="60" maxlength="600" placeholder="CuÃ©ntanos quÃ© esperas del curso"></textarea>
+		<textarea name="area_de_texto" rows="7" cols="60" maxlength="600" placeholder="Cuéntanos qué esperas del curso"></textarea>
 		<br>
 		<br>
 		<button type="submit">Enviar</button>
