@@ -31,7 +31,7 @@
 			<option value="php" name="php">PHP</option>
 		</select>
 		<br>
-		<br> Descripción alumno: <br>
+		<br> Descripci�n alumno: <br>
 		<textarea name="area_de_texto" rows="7" cols="60" maxlength="600" placeholder="Cuéntanos qué esperas del curso"></textarea>
 		<br>
 		<br>
