@@ -33,7 +33,7 @@
 			<td><%=alumno.getSexo()%></td>
 			<td><%=alumno.getAsignatura()%></td>
 			<td><%=alumno.getAreaTexto()%></td>
-			<td><a href="/ProyectoWeb/altaalumno.html"><button type="submit" action="edit">Modificar</button></a></td>
+			<td><a href="/ProyectoWeb/altaalumno.html"><button action="edit">Modificar</button></a></td>
 		</tr>
 		<%
 		}
