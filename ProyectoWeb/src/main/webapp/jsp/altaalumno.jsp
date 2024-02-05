@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"
+	import="java.util.List, java.util.ArrayList, pojos.AlumnoFormulario, servlets.AlumnoServlet "%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +25,7 @@
         Otro <input type="radio" name="sexo" value="otro"><br>
 		<br>Seleccione una asignatura<br>
 		<select name="lista_de_asignaturas">
-			<option value="0">Seleccione una opciÃ³n</option>
+			<option value="0">Seleccione una opción</option>
 			<option value="java" name="java">JAVA</option>
 			<option value="python" name="python">Python</option>
 			<option value="php" name="php">PHP</option>
