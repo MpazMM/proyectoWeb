@@ -32,7 +32,7 @@
 <body>
 	<h1>MOBILIARIO</h1>
 	<form action="/ProyectoWeb/mobiliarioservlet" method="post" id="MobiliarioForm">
-		<select id="mueble" name="asignatura" onclick="actualizarCampos();">
+		<select id="mueble" name="asignatura" onchange="actualizarCampos();">
 			<option value="0">Seleccione una opción</option>
 			<option value="Mesa">Mesa</option>
 			<option value="Sofa">Sofá</option>

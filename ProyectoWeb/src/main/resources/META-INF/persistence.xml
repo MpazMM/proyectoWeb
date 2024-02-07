@@ -3,7 +3,7 @@
     <persistence-unit name="hibernateMySQL" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- entidades o entities -->
-        <class>hibernate.basics.entities.Cliente</class>        
+        <!-- <class>hibernate.basics.entities.Cliente</class>-->        
         
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
