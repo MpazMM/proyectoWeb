@@ -1,12 +1,12 @@
 package servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -23,7 +23,8 @@ import pojos.mobiliario.Sofa;
 public class MobiliarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private List<Mobiliario> muebles;
-	Map<String,List<Mobiliario>> mapa = new HashMap<String,List<Mobiliario>>();
+	private String subtitulo;
+
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -33,7 +34,9 @@ public class MobiliarioServlet extends HttpServlet {
     }
 
 	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
+		subtitulo = config.getInitParameter("subtitle");
+		System.out.println("Entrando init con subtitulo "+ subtitulo);
+		muebles = new ArrayList<Mobiliario>();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -43,26 +46,32 @@ public class MobiliarioServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		System.out.println("Entrando doPost");
+		String tipo = request.getParameter("tipo");
 		String nombre = request.getParameter("nombre");
-		double precio = Double.parseDouble(request.getParameter("precio"));
-		String estilo = request.getParameter("estilo");
-		String color = request.getParameter("color");
-		int potencia = Integer.parseInt(request.getParameter("estilo"));
+		String precios = request.getParameter("precio");
 		
-		if(estilo!=null) {
-			Mesa mesa = new Mesa(nombre,precio,estilo);
+		double precio = Double.parseDouble(precios);
+		
+		if(tipo.equals("M")) {
+			String estilo = request.getParameter("estilo");
+			Mesa mesa = new Mesa (nombre,precio,estilo);
 			muebles.add(mesa);
-		}else if (color!=null){
+		}else  if(tipo.equals("S")) {
+			String color = request.getParameter("color");
 			Sofa sofa = new Sofa(nombre,precio,color);
 			muebles.add(sofa);
-		}else {
+		}else if(tipo.equals("L")) {
+			double potencia = Double.parseDouble(request.getParameter("potencia"));
 			Lampara lampara = new Lampara(nombre,precio,potencia);
 			muebles.add(lampara);
 		}
 		
-		mapa.put("Listado de muebles", muebles);
+		Map<String,Object> datos = new HashMap<String,Object>();
+		datos.put("subtitulo", subtitulo);
+		datos.put("listadoMuebles", muebles);
 		
-		request.setAttribute("listadoMuebles", mapa);
+		request.setAttribute("mapa", datos);
 		RequestDispatcher rd = request.getRequestDispatcher("ejerciciomobiliario/listadomobiliario.jsp"); 
 		rd.forward(request, response);
 	}

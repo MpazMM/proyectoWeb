@@ -8,32 +8,48 @@
 <title>Insert title here</title>
 </head>
 <body>
-    
-    <%
-    Map<String, List<Mobiliario>> mapa = (Map<String, List<Mobiliario>>) request.getAttribute("listadoMuebles");
+<%
+	Map<String, Object> mapa = (Map<String, Object>)request.getAttribute("mapa");
+	List<Mobiliario> muebles = (List<Mobiliario>)mapa.get("listadoMuebles");
+%>
 
-    Set<Entry <String, List<Mobiliario>>> entries = mapa.entrySet();
-    for (Entry<String, List<Mobiliario>> entry : entries) {%>
-        <h1><%=entry.getKey() %></h1>
-    <% 
-    
-    List<Mobiliario> mobiliario = entry.getValue();
-    
-        for (Mobiliario mueble : mobiliario) {%>
-            <%if(mueble instanceof Sofa) {%>
-                <p>Sofás</p>
-            <%   Sofa sofa1 = ((Sofa)mueble);%>
-                <p><%=sofa1.getNombre() + " - " + sofa1.getPrecio() + " - " + sofa1.getColor()%></p>
-            <% }else if (mueble instanceof Mesa) {%>
-            	<p>Mesa</p>
-            <%     Mesa mesa1 = ((Mesa)mueble);%>
-                <p><%=mesa1.getNombre() + " - " + mesa1.getPrecio() + " - " + mesa1.getEstilo()%></p>
-            <% }else if (mueble instanceof Lampara) {%>
-            	<p>Lampara</p>
-           	<%     Lampara lampara1 = ((Lampara)mueble);%>
-                <p><%=lampara1.getNombre() + " - " + lampara1.getPrecio() + " - " + lampara1.getPotencia()%></p>
-                 <% } %>
-        <% } %>
-    <% } %>
+
+<h1><%=mapa.get("subtitulo")  %></h1>
+
+<h2>Mesas</h2>
+<% 
+	for (Mobiliario mueble : muebles){
+		if (mueble instanceof Mesa){ 
+		Mesa mesa = (Mesa)mueble; %>
+		
+		<p><%=mesa.getNombre()%> <%=mesa.getPrecio()%> <%=mesa.getEstilo()%></p>
+	
+<%		}  
+	} %>
+
+
+<h2>Sofás</h2>
+<% 
+	for (Mobiliario mueble : muebles){
+		if (mueble instanceof Sofa){ 
+		Sofa sofa = (Sofa)mueble; %>
+		
+		<p><%=sofa.getNombre()%> <%=sofa.getPrecio()%> <%=sofa.getColor()%></p>
+	
+<%		}  
+	} %>
+	
+<h2>Lámparas</h2>
+<% 
+	for (Mobiliario mueble : muebles){
+		if (mueble instanceof Lampara){ 
+			Lampara lampara = (Lampara)mueble; %>
+		
+		<p><%=lampara.getNombre()%> <%=lampara.getPrecio()%> <%=lampara.getPotencia()%></p>
+	
+<%		}  
+	} %>
+
+
 </body>
 </html>

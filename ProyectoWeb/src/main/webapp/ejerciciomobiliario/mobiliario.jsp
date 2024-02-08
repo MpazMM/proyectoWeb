@@ -10,20 +10,20 @@
         var seleccion = document.getElementById("mueble").value;
 
         // Oculta todos los campos primero
-        document.getElementById("campoEstilo").style.display = "none";
-        document.getElementById("campoColor").style.display = "none";
-        document.getElementById("campoPotencia").style.display = "none";
+        document.getElementById("estilo").style.display = "none";
+        document.getElementById("color").style.display = "none";
+        document.getElementById("potencia").style.display = "none";
 
         // Muestra los campos basados en la selección
         switch(seleccion) {
-            case "Mesa":
-                document.getElementById("campoEstilo").style.display = "block";
+            case "M":
+                document.getElementById("estilo").style.display = "block";
                 break;
-            case "Sofa":
-                document.getElementById("campoColor").style.display = "block";
+            case "S":
+                document.getElementById("color").style.display = "block";
                 break;
-            case "Lampara":
-                document.getElementById("campoPotencia").style.display = "block";
+            case "L":
+                document.getElementById("potencia").style.display = "block";
                 break;
         }
     }
@@ -32,22 +32,22 @@
 <body>
 	<h1>MOBILIARIO</h1>
 	<form action="/ProyectoWeb/mobiliarioservlet" method="post" id="MobiliarioForm">
-		<select id="mueble" name="asignatura" onchange="actualizarCampos();">
+		<select id="mueble" name="tipo" onchange="actualizarCampos();">
 			<option value="0">Seleccione una opción</option>
-			<option value="Mesa">Mesa</option>
-			<option value="Sofa">Sofá</option>
-			<option value="Lampara">Lámpara</option>
+			<option value="M">Mesa</option>
+			<option value="S">Sofá</option>
+			<option value="L">Lámpara</option>
 		</select><br> <br> 
 		Nombre <input type="text" name="nombre" placeholder="Introduce el nombre"><br><br> 
-		Precio <input type="text" name="apellidos" placeholder="Introduce precio"><br><br> 
+		Precio <input type="text" name="precio" placeholder="Introduce precio"><br><br> 
 		
-		 <div id="campoEstilo" style="display:none;">
+		 <div id="estilo" style="display:none;">
             Estilo: <input type="text" name="estilo" placeholder="Introduce el estilo"><br>
         </div>
-        <div id="campoColor" style="display:none;">
+        <div id="color" style="display:none;">
             Color: <input type="text" name="color" placeholder="Introduce color"><br>
         </div>
-        <div id="campoPotencia" style="display:none;">
+        <div id="potencia" style="display:none;">
             Potencia: <input type="text" name="potencia" placeholder="Introduce potencia"><br>
         </div>
 		<br> <input id="guardar" type="submit" value="Guardar">

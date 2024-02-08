@@ -36,6 +36,11 @@
   	<display-name>MobiliarioServlet</display-name>
   	<description></description>
   	<servlet-class>servlets.MobiliarioServlet</servlet-class>
+  	<init-param>
+  		<param-name>subtitle</param-name>
+  		<param-value>Subtitulo de la página</param-value>
+  		<description></description>
+  	</init-param>
   </servlet>
 
   <servlet-mapping>

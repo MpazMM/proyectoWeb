@@ -2,23 +2,23 @@ package pojos.mobiliario;
 
 public class Lampara extends Mobiliario{
 	
-	private int potencia;
+	private double potencia;
 
 	/**
 	 * @param nombre
 	 * @param precio
-	 * @param potencia
+	 * @param potencia2
 	 */
-	public Lampara(String nombre, double precio, int potencia) {
+	public Lampara(String nombre, double precio, double potencia2) {
 		super(nombre, precio);
-		this.potencia = potencia;
+		this.potencia = potencia2;
 	}
 
-	public int getPotencia() {
+	public double getPotencia() {
 		return potencia;
 	}
 
-	public void setPotencia(int potencia) {
+	public void setPotencia(double potencia) {
 		this.potencia = potencia;
 	}
 	
