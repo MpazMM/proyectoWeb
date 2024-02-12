@@ -3,7 +3,10 @@
     <persistence-unit name="hibernateMySQL" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <!-- entidades o entities -->
-        <!-- <class>hibernate.basics.entities.Cliente</class>-->        
+       <class>pojos.mobiliario.Mobiliario</class>    
+       <class>pojos.mobiliario.Lampara</class>    
+       <class>pojos.mobiliario.Mesa</class>    
+       <class>pojos.mobiliario.Sofa</class>    
         
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
@@ -13,7 +16,7 @@
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
             <property name="hibernate.show_sql" value="true"/>
- 			<property name="hibernate.hbm2ddl.auto" value="update"/>
+ 			<property name="hibernate.hbm2ddl.auto" value="create"/>
         </properties>
     </persistence-unit>
     

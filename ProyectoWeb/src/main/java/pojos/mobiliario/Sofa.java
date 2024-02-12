@@ -1,5 +1,10 @@
 package pojos.mobiliario;
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
+@Entity
+@DiscriminatorValue(value="SF")
 public class Sofa extends Mobiliario {
 	
 	private String color;

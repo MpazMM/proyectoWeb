@@ -1,5 +1,10 @@
 package pojos.mobiliario;
 
+import jakarta.persistence.DiscriminatorValue;
+import jakarta.persistence.Entity;
+
+@Entity
+@DiscriminatorValue(value="MS")
 public class Mesa extends Mobiliario{
 	
 	private String estilo;
