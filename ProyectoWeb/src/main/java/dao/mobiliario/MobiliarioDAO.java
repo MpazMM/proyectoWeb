@@ -12,27 +12,15 @@ import utils.JpaUtil;
 
 public class MobiliarioDAO {
 
-	private EntityManager em;
+	private static EntityManager em;
 
 	protected void iniciaOperacion() {
 		em = JpaUtil.getEM("hibernateMySQL");
 	}
 
 	protected void terminaOperacion() {
-//	        sesion.getTransaction().commit();
-//	        sesion.close();
 	}
 
-//	    protected void manejaExcepcion(HibernateException he) throws HibernateException
-//	    {
-//	        sesion.getTransaction().rollback();
-//	        throw he;
-//	    }
-
-//	    protected Session getSession()
-//	    {
-//	        return sesion;
-//	    }
 
 	public static void almacenaEntidad(Mobiliario mobiliario) throws HibernateException {
 		MobiliarioDAO dummy = new MobiliarioDAO() {
