@@ -24,10 +24,17 @@ public abstract class Mobiliario implements Serializable{
 	@SequenceGenerator(name = "MOBILIARIOGEN", sequenceName = "MOBILIARIO_GEN", initialValue = 1, allocationSize = 1)
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MOBILIARIOGEN")
 	@Column(name = "ID", nullable = false, updatable = false)
-	
+	private long id;
 	private String nombre;
 	private double precio;
-	
+
+	/**
+	 * 
+	 */
+	public Mobiliario() {
+		super();
+	}
+
 	/**
 	 * @param nombre
 	 * @param precio
@@ -36,6 +43,13 @@ public abstract class Mobiliario implements Serializable{
 		super();
 		this.nombre = nombre;
 		this.precio = precio;
+	}
+
+	
+	
+	
+	public long getId() {
+		return id;
 	}
 
 	public String getNombre() {

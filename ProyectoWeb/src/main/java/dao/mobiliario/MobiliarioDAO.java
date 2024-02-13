@@ -1,71 +1,90 @@
 package dao.mobiliario;
 
-import java.io.Serializable;
 import java.util.List;
 
-import org.hibernate.HibernateException;
-
 import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Query;
 import pojos.mobiliario.Mobiliario;
 import utils.JpaUtil;
 
 public class MobiliarioDAO {
 
-	private static EntityManager em;
+	private static EntityManager em  = JpaUtil.getEntityManager();
 
-	protected void iniciaOperacion() {
-		em = JpaUtil.getEM("hibernateMySQL");
+
+	public List<Mobiliario> getMobiliario() {
+		
+		List<Mobiliario> muebles = em.createQuery("from Mobiliario", Mobiliario.class).getResultList();
+		
+		return muebles;
 	}
 
-	protected void terminaOperacion() {
+
+	public Mobiliario getByPK(long id) {
+		
+		Mobiliario mueble;
+		Query query = em.createQuery(
+				"from Mobiliario mb where mb.id=?1", 
+				Mobiliario.class);
+		
+		query.setParameter(1, id);
+		mueble = (Mobiliario)query.getSingleResult();
+		
+		return mueble;
 	}
 
 
-	public static void almacenaEntidad(Mobiliario mobiliario) throws HibernateException {
-		MobiliarioDAO dummy = new MobiliarioDAO() {
-		};
-
+	public void insert(Mobiliario mueble) {
+		this.em.getTransaction().begin();
 		try {
-			em = JpaUtil.getEM("hibernateMySQL");
-			EntityTransaction transaction = em.getTransaction();
-			transaction.begin();
-			em.persist(mobiliario);
-			transaction.commit();
-
-		} catch (HibernateException he) {
-			System.err.println("Error " + he.getMessage());
+			em.persist(mueble);
+			this.em.getTransaction().commit();
+		}catch (Exception e) {
+			this.em.getTransaction().rollback();
 		}
+		
 	}
 
-	public static <T> T getEntidad(Serializable id, Class<T> claseEntidad) throws HibernateException {
-		MobiliarioDAO dummy = new MobiliarioDAO() {
-		};
+//TODO más tarde
+//	public void updateById(long id,Mobiliario muebleModificado) {
+//		TypedQuery<Mobiliario> query = em.createQuery(
+//				"from Mobiliario where id=?1",
+//				Mobiliario.class);
+//		query.setParameter(1, id);
+//		
+//		try {
+//			Mobiliario mueble = query.getSingleResult();
+//			em.getTransaction().begin();
+//			mueble.setNombre(muebleModificado.getNombre());
+//			mueble.setPrecio(muebleModificado.getPrecio());
+//
+//			mueble.setFechaAlta(muebleModificado.getFechaAlta());
+//
+//			em.merge(mueble);
+//			
+//			em.getTransaction().commit();
+//		}catch (NoResultException nre) {
+//			System.out.println("ID "+ id + " no encontrado");
+//		}catch (Exception e) {
+//			System.out.println(e.getMessage());
+//			e.printStackTrace();
+//			em.getTransaction().rollback();
+//		}
+//		
+//	}
+		
 
-		T objetoRecuperado = null;
 
-		try {
-			dummy.iniciaOperacion();
-			objetoRecuperado = (T) em.find(claseEntidad, id);
-		} catch (HibernateException he) {
-
-		}
-
-		return objetoRecuperado;
+	public void deleteById(long id) {
+		 em.getTransaction().begin();
+		 try {
+			Mobiliario mobiliario = getByPK(id);
+            	em.remove(mobiliario);
+            em.getTransaction().commit();
+		 }catch(Exception e) {
+			 em.getTransaction().rollback();
+		 }
+		
 	}
 
-	public static <T> List<T> getListaEntidades(Class<T> claseEntidad) throws HibernateException {
-		MobiliarioDAO dummy = new MobiliarioDAO() {
-		};
-
-		List<T> listaResultado = null;
-
-		try {
-			dummy.iniciaOperacion();
-			listaResultado = em.createQuery("FROM " + claseEntidad.getSimpleName()).getResultList();
-		} catch (HibernateException he) {
-
-		}
-		return listaResultado;
-	}
 }

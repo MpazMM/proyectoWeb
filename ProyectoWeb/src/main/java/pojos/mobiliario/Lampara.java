@@ -8,6 +8,14 @@ import jakarta.persistence.Entity;
 public class Lampara extends Mobiliario{
 	
 	private double potencia;
+	
+	/**
+	 * @param nombre
+	 * @param precio
+	 */
+	public Lampara(String nombre, double precio) {
+		super(nombre, precio);
+	}
 
 	/**
 	 * @param nombre

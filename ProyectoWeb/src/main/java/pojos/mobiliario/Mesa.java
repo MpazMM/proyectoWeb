@@ -9,6 +9,16 @@ public class Mesa extends Mobiliario{
 	
 	private String estilo;
 
+	
+	
+	/**
+	 * @param nombre
+	 * @param precio
+	 */
+	public Mesa(String nombre, double precio) {
+		super(nombre, precio);
+	}
+
 	/**
 	 * @param nombre
 	 * @param precio

@@ -12,6 +12,14 @@ public class Sofa extends Mobiliario {
 	/**
 	 * @param nombre
 	 * @param precio
+	 */
+	public Sofa(String nombre, double precio) {
+		super(nombre, precio);
+	}
+
+	/**
+	 * @param nombre
+	 * @param precio
 	 * @param estilo
 	 */
 	public Sofa(String nombre, double precio, String color) {

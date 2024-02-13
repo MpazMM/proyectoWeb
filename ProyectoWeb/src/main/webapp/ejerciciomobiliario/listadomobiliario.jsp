@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"
-    import="java.util.List,pojos.mobiliario.Mobiliario,pojos.mobiliario.Mesa,pojos.mobiliario.Lampara,pojos.mobiliario.Sofa,java.util.Collection,java.util.HashMap,java.util.Map,java.util.Map.Entry,java.util.Set"%>
+    import="java.util.List,java.util.Collection,java.util.HashMap,java.util.Map,java.util.Map.Entry,java.util.Set,pojos.mobiliario.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,11 +23,13 @@
 		Mesa mesa = (Mesa)mueble; %>
 		
 		<p><%=mesa.getNombre()%> <%=mesa.getPrecio()%> <%=mesa.getEstilo()%></p>
-	
+	   <a href="/ProyectoWeb/ejerciciomobiliario/
+				mobiliario.jsp?id=<%=mesa.getId()%>"><input onclick="">Modificar</a>
 <%		}  
 	} %>
 
 
+				
 <h2>Sofás</h2>
 <% 
 	for (Mobiliario mueble : muebles){
@@ -35,6 +37,8 @@
 		Sofa sofa = (Sofa)mueble; %>
 		
 		<p><%=sofa.getNombre()%> <%=sofa.getPrecio()%> <%=sofa.getColor()%></p>
+		<a href="/ProyectoWeb/ejerciciomobiliario/
+				mobiliario.jsp?id=<%=sofa.getId()%>"><input onclick="">Modificar</a>
 	
 <%		}  
 	} %>
@@ -46,7 +50,8 @@
 			Lampara lampara = (Lampara)mueble; %>
 		
 		<p><%=lampara.getNombre()%> <%=lampara.getPrecio()%> <%=lampara.getPotencia()%></p>
-	
+	<a href="/ProyectoWeb/ejerciciomobiliario/
+				mobiliario.jsp?id=<%=lampara.getId()%>"><input onclick="">Modificar</a>
 <%		}  
 	} %>
 

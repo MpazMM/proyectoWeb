@@ -1,11 +1,11 @@
 package servlets;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import dao.mobiliario.MobiliarioDAO;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
@@ -22,7 +22,6 @@ import pojos.mobiliario.Sofa;
  */
 public class MobiliarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private List<Mobiliario> muebles;
 	private String subtitulo;
 
     /**
@@ -36,7 +35,6 @@ public class MobiliarioServlet extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		subtitulo = config.getInitParameter("subtitle");
 		System.out.println("Entrando init con subtitulo "+ subtitulo);
-		muebles = new ArrayList<Mobiliario>();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -53,19 +51,25 @@ public class MobiliarioServlet extends HttpServlet {
 		
 		double precio = Double.parseDouble(precios);
 		
+		MobiliarioDAO mdao = new MobiliarioDAO();
+		Mobiliario mueble = null;
 		if(tipo.equals("M")) {
 			String estilo = request.getParameter("estilo");
-			Mesa mesa = new Mesa (nombre,precio,estilo);
-			muebles.add(mesa);
+			mueble = new Mesa (nombre,precio,estilo);
+			//muebles.add(mesa);
 		}else  if(tipo.equals("S")) {
 			String color = request.getParameter("color");
-			Sofa sofa = new Sofa(nombre,precio,color);
-			muebles.add(sofa);
+			mueble = new Sofa(nombre,precio,color);
+			//muebles.add(sofa);
 		}else if(tipo.equals("L")) {
 			double potencia = Double.parseDouble(request.getParameter("potencia"));
-			Lampara lampara = new Lampara(nombre,precio,potencia);
-			muebles.add(lampara);
+			mueble = new Lampara(nombre,precio,potencia);
+			//muebles.add(lampara);
 		}
+		
+		mdao.insert(mueble);
+		
+		List<Mobiliario> muebles =  mdao.getMobiliario();
 		
 		Map<String,Object> datos = new HashMap<String,Object>();
 		datos.put("subtitulo", subtitulo);
