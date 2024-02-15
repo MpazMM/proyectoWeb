@@ -64,22 +64,22 @@ public class AlumnoServlet extends HttpServlet {
 	        String areaTexto = request.getParameter("area_de_texto");
 	        // Crear o actualizar alumno
 	        AlumnoFormulario alumno;
-	        if (strId != null && !strId.isEmpty()) {
-	            long id = Long.parseLong(strId);
-	            alumno = alumnos.stream().filter(a -> a.getId() == id).findFirst().orElse(null);
-	            if (alumno != null) {
-	                alumno.setNombre(nombre);
-	                alumno.setApellidos(apellidos);
-	                alumno.setSexo(sexo);
-	                alumno.setAsignatura(asignatura);
-	                alumno.setAreaTexto(areaTexto);
-	            }
-	        } else {
-	            long id = alumnos.size() > 0 ? alumnos.get(alumnos.size() - 1).getId() + 1 : 1;
-	            alumno = new AlumnoFormulario(id, nombre, apellidos, sexo, asignatura, areaTexto);
-	            alumnos.add(alumno);
-	        }
-	        doGet(request, response);
+//	        if (strId != null && !strId.isEmpty()) {
+//	            long id = Long.parseLong(strId);
+//	            alumno = alumnos.stream().filter(a -> a.getId() == id).findFirst().orElse(null);
+//	            if (alumno != null) {
+//	                alumno.setNombre(nombre);
+//	                alumno.setApellidos(apellidos);
+//	                alumno.setSexo(sexo);
+//	                alumno.setAsignatura(asignatura);
+//	                alumno.setAreaTexto(areaTexto);
+//	            }
+//	        } else {
+//	            long id = alumnos.size() > 0 ? alumnos.get(alumnos.size() - 1).getId() + 1 : 1;
+//	            alumno = new AlumnoFormulario(id, nombre, apellidos, sexo, asignatura, areaTexto);
+//	            alumnos.add(alumno);
+//	        }
+//	        doGet(request, response);
 	    }
 	
 	
