@@ -4,7 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
-public class JpaUtil { 
+public class JpaUtils {
 	private static EntityManager em;
 	
 	public static EntityManager getEntityManager() {
@@ -24,6 +24,6 @@ public class JpaUtil {
 		return em;
 		
 	}
-
+	
+	
 }
-
