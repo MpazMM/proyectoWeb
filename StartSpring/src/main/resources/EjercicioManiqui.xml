@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="mapaManiquis" class="java.util.HashMap">
+		<constructor-arg>
+			<map key-type="java.lang.String" value-type="java.util.List">
+				<entry key="Grupo1">
+					<list>
+						<ref bean="maniqui1" />
+					</list>
+				</entry>
+				<entry key="Grupo2">
+					<list>
+						<ref bean="maniqui2" />
+					</list>
+				</entry>
+			</map>
+		</constructor-arg>
+	</bean>
+
+<!-- Maniquís -->
+	<bean id="maniqui1" class="ejercicio.maniqui.Maniqui">
+		<property name="id" value="1"></property>
+		<property name="camisa" ref="camisa1"></property>
+		<property name="pantalon" ref="pantalon1"></property>
+	</bean>
+
+	<bean id="maniqui2" class="ejercicio.maniqui.Maniqui">
+		<property name="id" value="2"></property>
+		<property name="camisa" ref="camisa2"></property>
+		<property name="pantalon" ref="pantalon2"></property>
+	</bean>
+
+<!-- Camisas -->
+	<bean id="camisa1" class="ejercicio.maniqui.Camisa">
+		<property name="id" value="1"></property>
+		<property name="talla" value="46"></property>
+		<property name="color" value="Amarillo"></property>
+		<property name="precio" value="9.95"></property>
+		<property name="botones">
+			<array>
+				<ref bean="boton1" />
+				<ref bean="boton2" />
+			</array>
+		</property>
+	</bean>
+
+	<bean id="camisa2" class="ejercicio.maniqui.Camisa">
+		<property name="id" value="2"></property>
+		<property name="talla" value="40"></property>
+		<property name="color" value="Negro"></property>
+		<property name="precio" value="29.95"></property>
+		<property name="botones">
+			<array>
+				<ref bean="boton1" />
+				<ref bean="boton3" />
+			</array>
+		</property>
+	</bean>
+
+<!-- Pantalones -->
+	<bean id="pantalon1" class="ejercicio.maniqui.Pantalon">
+		<property name="id" value="1"></property>
+		<property name="talla" value="42"></property>
+		<property name="color" value="Azul"></property>
+		<property name="precio" value="29.95"></property>
+		<property name="boton" ref="boton1" />
+	</bean>
+
+	<bean id="pantalon2" class="ejercicio.maniqui.Pantalon">
+		<property name="id" value="2"></property>
+		<property name="talla" value="38"></property>
+		<property name="color" value="Negro"></property>
+		<property name="precio" value="49.95"></property>
+		<!-- El name "boton" es el nombre del atributo de la clase -->
+		<property name="boton" ref="boton2" />
+	</bean>
+
+<!-- Botones -->
+	<bean id="boton1" class="ejercicio.maniqui.Boton">
+		<property name="id" value="1"></property>
+		<property name="forma" value="redonda"></property>
+		<property name="tamaño" value="2.5"></property>
+		<property name="color" value="Blanco"></property>
+	</bean>
+
+	<bean id="boton2" class="ejercicio.maniqui.Boton">
+		<property name="id" value="2"></property>
+		<property name="forma" value="cuadrado"></property>
+		<property name="tamaño" value="1.5"></property>
+		<property name="color" value="Negro"></property>
+	</bean>
+	<bean id="boton3" class="ejercicio.maniqui.Boton">
+		<property name="id" value="3"></property>
+		<property name="forma" value="rombo"></property>
+		<property name="tamaño" value="3.5"></property>
+		<property name="color" value="Rosa"></property>
+	</bean>
+
+</beans>
