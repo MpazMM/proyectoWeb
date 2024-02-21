@@ -4,34 +4,13 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
 
-	<bean id="mapaManiquis" class="java.util.HashMap">
-		<constructor-arg>
-			<map key-type="java.lang.String" value-type="java.util.List">
-				<entry key="Grupo1">
-					<list>
-						<ref bean="maniqui1" />
-					</list>
-				</entry>
-				<entry key="Grupo2">
-					<list>
-						<ref bean="maniqui2" />
-					</list>
-				</entry>
-			</map>
-		</constructor-arg>
+	<bean id="LogGetafe1" class="ejercicio.log.LogGetafe">
+		<property name="nivelLog" value="3" />
 	</bean>
-
-<!-- Maniquís -->
-	<bean id="maniqui1" class="ejercicio.maniqui.Maniqui">
-		<property name="id" value="1"></property>
-		<property name="camisa" ref="camisa1"></property>
-		<property name="pantalon" ref="pantalon1"></property>
-	</bean>
-
-	<bean id="maniqui2" class="ejercicio.maniqui.Maniqui">
-		<property name="id" value="2"></property>
-		<property name="camisa" ref="camisa2"></property>
-		<property name="pantalon" ref="pantalon2"></property>
-	</bean>
+ 
+<!--   	<bean id="Calculadora" class="ejercicio.log.Calculadora"> -->
+<!-- 		<property name="operador1" value="3" /> -->
+<!-- 		<property name="operador2" value="6" /> -->
+<!-- 	</bean> -->
 
 </beans>
