@@ -15,7 +15,7 @@ public class LogGetafe {
 	
 	
 	public void pintar (String msg) {
-		if(nivelLog>=0) {
+		if(nivelLog==0) {
 			System.out.println("Trace. " + msg);
 		}else if(nivelLog>=1) {
 			System.out.println("Debug. " + msg);
