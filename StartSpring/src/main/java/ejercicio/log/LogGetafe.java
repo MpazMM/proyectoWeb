@@ -13,21 +13,28 @@ public class LogGetafe {
 		this.nivelLog = nivelLog;
 	}
 	
-	
-	public void pintar (String msg) {
-		if(nivelLog==0) {
+	public void trace (String msg) {
 			System.out.println("Trace. " + msg);
-		}else if(nivelLog>=1) {
+	}
+	
+	public void debug (String msg) {
 			System.out.println("Debug. " + msg);
-		}else if(nivelLog>=2) {
+	}
+	
+	public void info (String msg) {
 			System.out.println("Info. " + msg);
-		}else if(nivelLog>=3) {
+	}
+	
+	public void warning (String msg) {
 			System.out.println("Warning. " + msg);
-		}else if(nivelLog>=4) {
+	}
+	
+	public void error (String msg) {
 			System.out.println("Error. " + msg);
-		}else if(nivelLog>=5) {
+	}
+	
+	public void fatal (String msg) {
 			System.out.println("Fatal. " + msg);
-		}
 	}
 	
 

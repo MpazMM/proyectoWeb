@@ -32,9 +32,44 @@ public class Calculadora {
 	}
 	
 	
-	
 	public void sumar(){
-	    log.pintar("El resultado es "+(operador1+operador2));
+		if(log.getNivelLog()==0) {
+			log.trace("El resultado es "+(operador1+operador2));
+		}else if(log.getNivelLog()<=1) {
+			log.trace("El resultado es "+(operador1+operador2));
+			log.debug("El resultado es "+(operador1+operador2));
+		}else if(log.getNivelLog()<=2) {
+			log.trace("El resultado es "+(operador1+operador2));
+			log.debug("El resultado es "+(operador1+operador2));
+			log.info("El resultado es "+(operador1+operador2));
+		}else if(log.getNivelLog()<=3) {
+			log.trace("El resultado es "+(operador1+operador2));
+			log.debug("El resultado es "+(operador1+operador2));
+			log.info("El resultado es "+(operador1+operador2));
+			log.warning("El resultado es "+(operador1+operador2));
+		}else if(log.getNivelLog()<=4) {
+			log.trace("El resultado es "+(operador1+operador2));
+			log.debug("El resultado es "+(operador1+operador2));
+			log.info("El resultado es "+(operador1+operador2));
+			log.warning("El resultado es "+(operador1+operador2));
+			log.error("El resultado es "+(operador1+operador2));
+		}else if(log.getNivelLog()<=5) {
+			log.trace("El resultado es "+(operador1+operador2));
+			log.debug("El resultado es "+(operador1+operador2));
+			log.info("El resultado es "+(operador1+operador2));
+			log.warning("El resultado es "+(operador1+operador2));
+			log.error("El resultado es "+(operador1+operador2));
+			log.fatal("El resultado es "+(operador1+operador2));
+		}else {
+			System.out.println("Indicador incorrecto");
+		}
+	    
+	}
+	@Override
+	public String toString() {
+		return "Calculadora [" + (log != null ? "log=" + log + ", " : "") + "operador1=" + operador1 + ", operador2="
+				+ operador2 + "]";
 	}	
+	
 	
 }
