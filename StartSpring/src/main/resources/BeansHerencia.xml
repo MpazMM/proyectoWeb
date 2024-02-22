@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+ <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"> 
+ 
+	<bean id="generoFemenino" abstract="true">
+		<property name="genero" value="Femenino"/>
+	</bean>
+	
+	<bean id="generoMasculino" abstract="true">
+		<property name="genero" value="Masculino"/>
+	</bean>
+	
+	<bean id="p1" class="ejercicio.herencia.Persona" parent="generoFemenino" scope="prototype"> 
+		<property name="nombre" value="Ana Isabel"/>
+		<property name="apellidos" value="Sánchez Muñoz"/>
+		<property name="dni" value="15946857-W"/>
+	</bean>
+	
+	<bean id="p2" class="ejercicio.herencia.Persona" parent="generoMasculino" scope="prototype"> 
+		<property name="nombre" value="Fernando"/>
+		<property name="apellidos" value="Jiménez Benito"/>
+		<property name="dni" value="30040057-D"/>
+	</bean>
+	
+ </beans> 
