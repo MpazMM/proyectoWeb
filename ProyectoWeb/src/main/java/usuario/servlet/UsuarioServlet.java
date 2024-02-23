@@ -76,7 +76,7 @@ public class UsuarioServlet extends HttpServlet {
 			int tlfCorp = Integer.parseInt(request.getParameter("tlfCorp"));
 			String emailCorp = request.getParameter("emailCorp");
 			cuenta = new Administrador (nombreUsuario, apellidosUsuario, dniUsuario, sexoUsuario, 
-					fechaNacimiento, emailUsuario, tlfUsuario, idCuenta, contrasenia, tlfCorp, emailCorp);
+					fechaNacimiento.parse("dd-MM-yyyy"), emailUsuario, tlfUsuario, idCuenta, contrasenia, tlfCorp, emailCorp);
 		}else if(tipoUsuario.equals("USUARIO")) {
 			String perfilUsuario = request.getParameter("perfilUsuario");
 			cuenta = new Usuario (nombreUsuario,apellidosUsuario,dniUsuario,sexoUsuario,
