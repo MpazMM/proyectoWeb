@@ -1,5 +1,6 @@
 package usuario.entities;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -35,11 +36,11 @@ public abstract class Cuenta {
 		@Column(name="SEXO",length = 15, nullable = false)
 		private String sexo;
 		@Column(name="FECHA_NACIMIENTO", nullable = false)
-		private Date fechaNacimiento;
+		private SimpleDateFormat fechaNacimiento;
 		@Column(name="EMAIL", nullable = false)
 		private String email;
 		@Column(name="TELEFONO",length = 9, nullable = false)
-		private int telefono;
+		private int tlfUsuario;
 		@Column(name="IDCUENTA", nullable = false)
 		private String idCuenta;
 		@Column(name="CONTRASEÑA", nullable = false)
@@ -53,26 +54,28 @@ public abstract class Cuenta {
 		}
 
 		/**
+		 * @param id
 		 * @param nombre
 		 * @param apellidos
 		 * @param dni
 		 * @param sexo
 		 * @param fechaNacimiento
 		 * @param email
-		 * @param telefono
+		 * @param tlfUsuario
 		 * @param idCuenta
 		 * @param contrasenia
 		 */
-		public Cuenta(String nombre, String apellidos, String dni, String sexo, Date fechaNacimiento, String email,
-				int telefono, String idCuenta, String contrasenia) {
+		public Cuenta(long id, String nombre, String apellidos, String dni, String sexo,
+				SimpleDateFormat fechaNacimiento, String email, int tlfUsuario, String idCuenta, String contrasenia) {
 			super();
+			this.id = id;
 			this.nombre = nombre;
 			this.apellidos = apellidos;
 			this.dni = dni;
 			this.sexo = sexo;
 			this.fechaNacimiento = fechaNacimiento;
 			this.email = email;
-			this.telefono = telefono;
+			this.tlfUsuario = tlfUsuario;
 			this.idCuenta = idCuenta;
 			this.contrasenia = contrasenia;
 		}
@@ -93,14 +96,6 @@ public abstract class Cuenta {
 			this.apellidos = apellidos;
 		}
 
-		public String getDni() {
-			return dni;
-		}
-
-		public void setDni(String dni) {
-			this.dni = dni;
-		}
-
 		public String getSexo() {
 			return sexo;
 		}
@@ -109,11 +104,11 @@ public abstract class Cuenta {
 			this.sexo = sexo;
 		}
 
-		public Date getFechaNacimiento() {
+		public SimpleDateFormat getFechaNacimiento() {
 			return fechaNacimiento;
 		}
 
-		public void setFechaNacimiento(Date fechaNacimiento) {
+		public void setFechaNacimiento(SimpleDateFormat fechaNacimiento) {
 			this.fechaNacimiento = fechaNacimiento;
 		}
 
@@ -125,20 +120,12 @@ public abstract class Cuenta {
 			this.email = email;
 		}
 
-		public int getTelefono() {
-			return telefono;
+		public int getTlfUsuario() {
+			return tlfUsuario;
 		}
 
-		public void setTelefono(int telefono) {
-			this.telefono = telefono;
-		}
-
-		public String getIdCuenta() {
-			return idCuenta;
-		}
-
-		public void setIdCuenta(String idCuenta) {
-			this.idCuenta = idCuenta;
+		public void setTlfUsuario(int tlfUsuario) {
+			this.tlfUsuario = tlfUsuario;
 		}
 
 		public String getContrasenia() {
@@ -153,17 +140,26 @@ public abstract class Cuenta {
 			return id;
 		}
 
+		public String getDni() {
+			return dni;
+		}
+
+		public String getIdCuenta() {
+			return idCuenta;
+		}
+
 		@Override
 		public String toString() {
-			return "Cuenta [" + (nombre != null ? "nombre=" + nombre + ", " : "")
+			return "Cuenta [id=" + id + ", " + (nombre != null ? "nombre=" + nombre + ", " : "")
 					+ (apellidos != null ? "apellidos=" + apellidos + ", " : "")
 					+ (dni != null ? "dni=" + dni + ", " : "") + (sexo != null ? "sexo=" + sexo + ", " : "")
 					+ (fechaNacimiento != null ? "fechaNacimiento=" + fechaNacimiento + ", " : "")
-					+ (email != null ? "email=" + email + ", " : "") + "telefono=" + telefono + ", "
+					+ (email != null ? "email=" + email + ", " : "") + "tlfUsuario=" + tlfUsuario + ", "
 					+ (idCuenta != null ? "idCuenta=" + idCuenta + ", " : "")
 					+ (contrasenia != null ? "contrasenia=" + contrasenia : "") + "]";
 		}
-		
+
+	
 		
 
 }

@@ -1,19 +1,18 @@
 package usuario.servlet;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import entities.muebles.Mueble;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.Servlet;
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import usuario.dao.UsuarioDAO;
 import usuario.entities.Administrador;
 import usuario.entities.Cuenta;
@@ -24,7 +23,8 @@ import usuario.entities.Usuario;
  */
 public class UsuarioServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private String subtitulo;
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -38,6 +38,8 @@ public class UsuarioServlet extends HttpServlet {
 	 */
 	public void init(ServletConfig config) throws ServletException {
 		// TODO Auto-generated method stub
+		subtitulo = config.getInitParameter("subtitle");
+		System.out.println("Entrando init con subtitulo "+ subtitulo);
 	}
 
 	/**
@@ -53,19 +55,32 @@ public class UsuarioServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Entrando doPost");
-		String tipo = request.getParameter("tipo");
-		String nombre = request.getParameter("nombre");
-		double precio = Double.parseDouble(request.getParameter("precio"));
 		
 		
+		//TODO revisar el tipoUsuario y perfilUsuario, me he hecho lío
+		String nombreUsuario = request.getParameter("nombreUsuario");
+		String apellidosUsuario = request.getParameter("apellidosUsuario");
+		String dniUsuario = request.getParameter("apellidosUsuario");
+		String sexoUsuario = request.getParameter("sexoUsuario");
+		String fechaNacimientoStr = request.getParameter("fechaNacimiento");
+		SimpleDateFormat fechaNacimiento = new SimpleDateFormat(fechaNacimientoStr);
+		String emailUsuario = request.getParameter("apellidosUsuario");
+		int tlfUsuario = Integer.parseInt(request.getParameter("telefono"));
+		String tipoUsuario = request.getParameter("tipoUsuario");
+		int idCuenta = Integer.parseInt(request.getParameter("idCuenta"));
+		String contrasenia = request.getParameter("contrasenia");
+
 		UsuarioDAO cdao = new UsuarioDAO();
 		Cuenta cuenta = null;
-		if(tipo.equals("ADMIN")) {
-			String estilo = request.getParameter("estilo");
-			cuenta = new Administrador (nombre, apellidos, dni, sexo, fechaNacimiento, email, telefono, idCuenta, contrasenia, tlfCorp, emailCorp);
-		}else if(tipo.equals("USUARIO")) {
-			double potencia = Double.parseDouble(request.getParameter("potencia"));
-			cuenta = new Usuario (nombre, apellidos, dni, sexo, fechaNacimiento, email, telefono, idCuenta, contrasenia, invitado);
+		if(tipoUsuario.equals("ADMIN")) {
+			int tlfCorp = Integer.parseInt(request.getParameter("tlfCorp"));
+			String emailCorp = request.getParameter("emailCorp");
+			cuenta = new Administrador (nombreUsuario, apellidosUsuario, dniUsuario, sexoUsuario, 
+					fechaNacimiento, emailUsuario, tlfUsuario, idCuenta, contrasenia, tlfCorp, emailCorp);
+		}else if(tipoUsuario.equals("USUARIO")) {
+			String perfilUsuario = request.getParameter("perfilUsuario");
+			cuenta = new Usuario (nombreUsuario,apellidosUsuario,dniUsuario,sexoUsuario,
+					fechaNacimiento,emailUsuario,tlfUsuario,idCuenta,contrasenia,tipoUsuario);
 		}
 
 		cdao.insert(cuenta);
@@ -78,11 +93,8 @@ public class UsuarioServlet extends HttpServlet {
 		datos.put("subtitulo", subtitulo);
 		datos.put("listadoCuentas", cuentas);
 		
-//		request.setAttribute("subtitulo", subtitulo);
-//		request.setAttribute("listadoMuebles", muebles);
-		
 		request.setAttribute("mapa", datos);
-		RequestDispatcher rd =  request.getRequestDispatcher("ejercicioMueblesHerencia/listadoMuebles.jsp");
+		RequestDispatcher rd =  request.getRequestDispatcher("Proyecto/listadoCuentas.jsp");
 		
 		rd.forward(request, response);
 	}

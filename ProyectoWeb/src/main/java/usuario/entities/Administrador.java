@@ -1,6 +1,6 @@
 package usuario.entities;
 
-import java.util.Date;
+import java.text.SimpleDateFormat;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
@@ -8,7 +8,7 @@ import jakarta.persistence.Entity;
 @Entity
 @DiscriminatorValue(value = "ADMIN")
 public class Administrador extends Cuenta {
-	private String tlfCorp;
+	private int tlfCorp;
 	private String emailCorp;
 	
 	/**
@@ -17,34 +17,45 @@ public class Administrador extends Cuenta {
 	public Administrador() {
 		super();
 	}
-
+	
 	/**
+	 * @param id
 	 * @param nombre
 	 * @param apellidos
 	 * @param dni
 	 * @param sexo
 	 * @param fechaNacimiento
 	 * @param email
-	 * @param telefono
+	 * @param tlfUsuario
 	 * @param idCuenta
 	 * @param contrasenia
 	 * @param tlfCorp
 	 * @param emailCorp
 	 */
-	public Administrador(String nombre, String apellidos, String dni, String sexo, Date fechaNacimiento, String email,
-			int telefono, String idCuenta, String contrasenia, String tlfCorp, String emailCorp) {
-		super(nombre, apellidos, dni, sexo, fechaNacimiento, email, telefono, idCuenta, contrasenia);
+	public Administrador(long id, String nombre, String apellidos, String dni, String sexo, SimpleDateFormat fechaNacimiento,
+			String email, int tlfUsuario, String idCuenta, String contrasenia, int tlfCorp, String emailCorp) {
+		super(id, nombre, apellidos, dni, sexo, fechaNacimiento, email, tlfUsuario, idCuenta, contrasenia);
 		this.tlfCorp = tlfCorp;
 		this.emailCorp = emailCorp;
 	}
 
 
 
-	public String getTlfCorp() {
+	/**
+	 * @param tlfCorp
+	 * @param emailCorp
+	 */
+	public Administrador(int tlfCorp, String emailCorp) {
+		super();
+		this.tlfCorp = tlfCorp;
+		this.emailCorp = emailCorp;
+	}
+
+	public int getTlfCorp() {
 		return tlfCorp;
 	}
 
-	public void setTlfCorp(String tlfCorp) {
+	public void setTlfCorp(int tlfCorp) {
 		this.tlfCorp = tlfCorp;
 	}
 
@@ -56,4 +67,11 @@ public class Administrador extends Cuenta {
 		this.emailCorp = emailCorp;
 	}
 
+	@Override
+	public String toString() {
+		return "Administrador [tlfCorp=" + tlfCorp + ", " + (emailCorp != null ? "emailCorp=" + emailCorp : "") + "]";
+	}
+
+	
+	
 }

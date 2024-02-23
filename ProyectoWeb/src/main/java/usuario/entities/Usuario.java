@@ -1,6 +1,6 @@
 package usuario.entities;
 
-import java.util.Date;
+import java.text.SimpleDateFormat;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
@@ -8,7 +8,7 @@ import jakarta.persistence.Entity;
 @Entity
 @DiscriminatorValue(value = "USUARIO")
 public class Usuario extends Cuenta{
-	private boolean invitado;
+	private String perfilUsuario;
 
 	/**
 	 * 
@@ -17,31 +17,46 @@ public class Usuario extends Cuenta{
 		super();
 	}
 
+	
+	
 	/**
+	 * @param id
 	 * @param nombre
 	 * @param apellidos
 	 * @param dni
 	 * @param sexo
 	 * @param fechaNacimiento
 	 * @param email
-	 * @param telefono
+	 * @param tlfUsuario
 	 * @param idCuenta
 	 * @param contrasenia
-	 * @param invitado
+	 * @param perfilUsuario
 	 */
-	public Usuario(String nombre, String apellidos, String dni, String sexo, Date fechaNacimiento, String email,
-			int telefono, String idCuenta, String contrasenia, boolean invitado) {
-		super(nombre, apellidos, dni, sexo, fechaNacimiento, email, telefono, idCuenta, contrasenia);
-		this.invitado = invitado;
+	public Usuario(long id, String nombre, String apellidos, String dni, String sexo, SimpleDateFormat fechaNacimiento,
+			String email, int tlfUsuario, String idCuenta, String contrasenia, String perfilUsuario) {
+		super(id, nombre, apellidos, dni, sexo, fechaNacimiento, email, tlfUsuario, idCuenta, contrasenia);
+		this.perfilUsuario = perfilUsuario;
 	}
 
-	public boolean isInvitado() {
-		return invitado;
+
+
+	/**
+	 * @param perfil
+	 */
+	public Usuario(String perfilUsuario) {
+		super();
+		this.perfilUsuario = perfilUsuario;
 	}
 
-	public void setInvitado(boolean invitado) {
-		this.invitado = invitado;
+	public String getPerfilUsuario() {
+		return perfilUsuario;
 	}
+
+	public void setPerfilUsuario(String perfilUsuario) {
+		this.perfilUsuario = perfilUsuario;
+	}
+
+
 	
 	
 

@@ -21,4 +21,10 @@
 		<property name="dni" value="30040057-D"/>
 	</bean>
 	
+	<bean id="prensa" class="ejercicio.herencia.ServicioPrensa" lazy-init="true"> 
+		<property name="nombre" value="Fernando"/>
+		<property name="apellidos" value="Jiménez Benito"/>
+		<property name="dni" value="30040057-D"/>
+	</bean>
+	
  </beans> 
