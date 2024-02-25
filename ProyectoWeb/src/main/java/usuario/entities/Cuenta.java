@@ -1,6 +1,5 @@
 package usuario.entities;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import jakarta.persistence.Column;
@@ -25,8 +24,6 @@ public abstract class Cuenta {
 		@Id
 		@SequenceGenerator(name = "CUENTAGEN", sequenceName = "CUENTASEQ", initialValue = 1, allocationSize = 1)
 		@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUENTAGEN")
-		@Column(name = "ID", nullable = false, updatable = false)
-	    private long id;
 		@Column(name="NOMBRE", length = 15, nullable = false)
 		private String nombre;
 		@Column(name="APELLIDOS", nullable = false)
@@ -36,7 +33,7 @@ public abstract class Cuenta {
 		@Column(name="SEXO",length = 15, nullable = false)
 		private String sexo;
 		@Column(name="FECHA_NACIMIENTO", nullable = false)
-		private SimpleDateFormat fechaNacimiento;
+		private Date fechaNacimiento;
 		@Column(name="EMAIL", nullable = false)
 		private String email;
 		@Column(name="TELEFONO",length = 9, nullable = false)
@@ -46,29 +43,17 @@ public abstract class Cuenta {
 		@Column(name="CONTRASEÑA", nullable = false)
 		private String contrasenia;
 		
-		/**
-		 * 
-		 */
+		
+		
+		
 		public Cuenta() {
 			super();
 		}
 
-		/**
-		 * @param id
-		 * @param nombre
-		 * @param apellidos
-		 * @param dni
-		 * @param sexo
-		 * @param fechaNacimiento
-		 * @param email
-		 * @param tlfUsuario
-		 * @param idCuenta
-		 * @param contrasenia
-		 */
-		public Cuenta(long id, String nombre, String apellidos, String dni, String sexo,
-				SimpleDateFormat fechaNacimiento, String email, int tlfUsuario, String idCuenta, String contrasenia) {
+
+		public Cuenta(String nombre, String apellidos, String dni, String sexo, Date fechaNacimiento,
+				String email, int tlfUsuario, String idCuenta, String contrasenia) {
 			super();
-			this.id = id;
 			this.nombre = nombre;
 			this.apellidos = apellidos;
 			this.dni = dni;
@@ -80,86 +65,94 @@ public abstract class Cuenta {
 			this.contrasenia = contrasenia;
 		}
 
+
 		public String getNombre() {
 			return nombre;
 		}
+
 
 		public void setNombre(String nombre) {
 			this.nombre = nombre;
 		}
 
+
 		public String getApellidos() {
 			return apellidos;
 		}
+
 
 		public void setApellidos(String apellidos) {
 			this.apellidos = apellidos;
 		}
 
+
 		public String getSexo() {
 			return sexo;
 		}
+
 
 		public void setSexo(String sexo) {
 			this.sexo = sexo;
 		}
 
-		public SimpleDateFormat getFechaNacimiento() {
+
+		public Date getFechaNacimiento() {
 			return fechaNacimiento;
 		}
 
-		public void setFechaNacimiento(SimpleDateFormat fechaNacimiento) {
+
+		public void setFechaNacimiento(Date fechaNacimiento) {
 			this.fechaNacimiento = fechaNacimiento;
 		}
+
 
 		public String getEmail() {
 			return email;
 		}
 
+
 		public void setEmail(String email) {
 			this.email = email;
 		}
+
 
 		public int getTlfUsuario() {
 			return tlfUsuario;
 		}
 
+
 		public void setTlfUsuario(int tlfUsuario) {
 			this.tlfUsuario = tlfUsuario;
 		}
+
 
 		public String getContrasenia() {
 			return contrasenia;
 		}
 
+
 		public void setContrasenia(String contrasenia) {
 			this.contrasenia = contrasenia;
 		}
 
-		public long getId() {
-			return id;
-		}
 
 		public String getDni() {
 			return dni;
 		}
 
+
 		public String getIdCuenta() {
 			return idCuenta;
 		}
 
+
 		@Override
 		public String toString() {
-			return "Cuenta [id=" + id + ", " + (nombre != null ? "nombre=" + nombre + ", " : "")
-					+ (apellidos != null ? "apellidos=" + apellidos + ", " : "")
-					+ (dni != null ? "dni=" + dni + ", " : "") + (sexo != null ? "sexo=" + sexo + ", " : "")
-					+ (fechaNacimiento != null ? "fechaNacimiento=" + fechaNacimiento + ", " : "")
-					+ (email != null ? "email=" + email + ", " : "") + "tlfUsuario=" + tlfUsuario + ", "
-					+ (idCuenta != null ? "idCuenta=" + idCuenta + ", " : "")
-					+ (contrasenia != null ? "contrasenia=" + contrasenia : "") + "]";
+			return "Cuenta [nombre=" + nombre + ", apellidos=" + apellidos + ", dni=" + dni + ", sexo=" + sexo
+					+ ", fechaNacimiento=" + fechaNacimiento + ", email=" + email + ", tlfUsuario=" + tlfUsuario
+					+ ", idCuenta=" + idCuenta + ", contrasenia=" + contrasenia + "]";
 		}
-
-	
+		
 		
 
 }

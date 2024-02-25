@@ -45,28 +45,13 @@
 	<p><%=usuario.getNombre()%>
 		<%=usuario.getApellidos()%>
 		<%=usuario.getDni()%>
-		<%=usuario.getPerfilUsuario()()%></p>
+		<%=usuario.getPerfilUsuario()%></p>
 
 	<%
 	}
 	}
 	%>
 
-	<h2>Lámparas</h2>
-	<%
-	for (Mueble mueble : muebles) {
-		if (mueble instanceof Lampara) {
-			Lampara lampara = (Lampara) mueble;
-	%>
-
-	<p><%=lampara.getNombre()%>
-		<%=lampara.getPrecio()%>
-		<%=lampara.getPotencia()%></p>
-
-	<%
-	}
-	}
-	%>
 
 
 

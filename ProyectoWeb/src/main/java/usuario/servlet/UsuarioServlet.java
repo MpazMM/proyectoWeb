@@ -2,6 +2,7 @@ package usuario.servlet;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -60,11 +61,14 @@ public class UsuarioServlet extends HttpServlet {
 		//TODO revisar el tipoUsuario y perfilUsuario, me he hecho lío
 		String nombreUsuario = request.getParameter("nombreUsuario");
 		String apellidosUsuario = request.getParameter("apellidosUsuario");
-		String dniUsuario = request.getParameter("apellidosUsuario");
+		String dniUsuario = request.getParameter("dniUsuario");
 		String sexoUsuario = request.getParameter("sexoUsuario");
+		
 		String fechaNacimientoStr = request.getParameter("fechaNacimiento");
-		SimpleDateFormat fechaNacimiento = new SimpleDateFormat(fechaNacimientoStr);
-		String emailUsuario = request.getParameter("apellidosUsuario");
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date fechaNacimiento = format.parse(fechaNacimientoStr);
+		
+		String emailUsuario = request.getParameter("emailUsuario");
 		int tlfUsuario = Integer.parseInt(request.getParameter("telefono"));
 		String tipoUsuario = request.getParameter("tipoUsuario");
 		int idCuenta = Integer.parseInt(request.getParameter("idCuenta"));
@@ -76,11 +80,11 @@ public class UsuarioServlet extends HttpServlet {
 			int tlfCorp = Integer.parseInt(request.getParameter("tlfCorp"));
 			String emailCorp = request.getParameter("emailCorp");
 			cuenta = new Administrador (nombreUsuario, apellidosUsuario, dniUsuario, sexoUsuario, 
-					fechaNacimiento.parse("dd-MM-yyyy"), emailUsuario, tlfUsuario, idCuenta, contrasenia, tlfCorp, emailCorp);
+					fechaNacimiento, emailUsuario, tlfUsuario, idCuenta, contrasenia, tlfCorp, emailCorp);
 		}else if(tipoUsuario.equals("USUARIO")) {
 			String perfilUsuario = request.getParameter("perfilUsuario");
 			cuenta = new Usuario (nombreUsuario,apellidosUsuario,dniUsuario,sexoUsuario,
-					fechaNacimiento,emailUsuario,tlfUsuario,idCuenta,contrasenia,tipoUsuario);
+					fechaNacimiento,emailUsuario,tlfUsuario,idCuenta,contrasenia,perfilUsuario);
 		}
 
 		cdao.insert(cuenta);

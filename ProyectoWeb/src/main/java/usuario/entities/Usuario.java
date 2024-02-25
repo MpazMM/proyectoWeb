@@ -1,6 +1,6 @@
 package usuario.entities;
 
-import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
@@ -17,27 +17,12 @@ public class Usuario extends Cuenta{
 		super();
 	}
 
-	
-	
-	/**
-	 * @param id
-	 * @param nombre
-	 * @param apellidos
-	 * @param dni
-	 * @param sexo
-	 * @param fechaNacimiento
-	 * @param email
-	 * @param tlfUsuario
-	 * @param idCuenta
-	 * @param contrasenia
-	 * @param perfilUsuario
-	 */
-	public Usuario(long id, String nombre, String apellidos, String dni, String sexo, SimpleDateFormat fechaNacimiento,
-			String email, int tlfUsuario, String idCuenta, String contrasenia, String perfilUsuario) {
-		super(id, nombre, apellidos, dni, sexo, fechaNacimiento, email, tlfUsuario, idCuenta, contrasenia);
+
+	public Usuario(String nombre, String apellidos, String dni, String sexo, Date fechaNacimiento, String email,
+			int tlfUsuario, String idCuenta, String contrasenia, String perfilUsuario) {
+		super(nombre, apellidos, dni, sexo, fechaNacimiento, email, tlfUsuario, idCuenta, contrasenia);
 		this.perfilUsuario = perfilUsuario;
 	}
-
 
 
 	/**

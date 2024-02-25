@@ -83,7 +83,7 @@
 				</div>
 
 				Usuario: <br> <input id="idCuenta" type="text" name="idCuenta"><br>
-				Contraseña: <br> <input id="contrasena" type="text"
+				Contraseña: <br> <input id="contrasenia" type="text"
 					name="contrasena"><br>
 				<br>
 				<button type="submit">Enviar</button>
