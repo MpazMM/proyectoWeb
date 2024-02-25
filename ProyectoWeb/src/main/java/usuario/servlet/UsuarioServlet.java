@@ -58,7 +58,7 @@ public class UsuarioServlet extends HttpServlet {
 		System.out.println("Entrando doPost");
 		
 		
-		//TODO revisar el tipoUsuario y perfilUsuario, me he hecho lío
+		//TODO NO CREA LOS USUARIOS DE MIERRRDA
 		String nombreUsuario = request.getParameter("nombreUsuario");
 		String apellidosUsuario = request.getParameter("apellidosUsuario");
 		String dniUsuario = request.getParameter("dniUsuario");
