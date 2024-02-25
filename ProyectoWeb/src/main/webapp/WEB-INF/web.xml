@@ -5,43 +5,7 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
 
-  <servlet>
-  	<servlet-name>ServletPrueba2</servlet-name>
-  	<display-name>ServletPrueba2</display-name>
-  	<description></description>
-  	<servlet-class>servlets.ServletPrueba2</servlet-class>
-  </servlet>
   
-  <servlet>
-  	<servlet-name>FormularioServlet</servlet-name>
-  	<display-name>FormularioServlet</display-name>
-  	<description></description>
-  	<servlet-class>servlets.FormularioServlet</servlet-class>
-  </servlet>
-  
-  <servlet>
-  	<servlet-name>FS</servlet-name>
-  	<display-name>FormularioServletMpaz</display-name>
-  	<description></description>
-  	<servlet-class>servlets.FormularioServlet</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>AlumnoServlet</servlet-name>
-  	<display-name>AlumnoServlet</display-name>
-  	<description></description>
-  	<servlet-class>servlets.AlumnoServlet</servlet-class>
-  </servlet>
-  <servlet>
-  	<servlet-name>MobiliarioServlet</servlet-name>
-  	<display-name>MobiliarioServlet</display-name>
-  	<description></description>
-  	<servlet-class>servlets.MobiliarioServlet</servlet-class>
-  	<init-param>
-  		<param-name>subtitle</param-name>
-  		<param-value>Subtitulo de la página</param-value>
-  		<description></description>
-  	</init-param>
-  </servlet>
   <servlet>
   	<servlet-name>UsuarioServlet</servlet-name>
   	<display-name>UsuarioServlet</display-name>
@@ -53,33 +17,6 @@
   		<description></description>
   	</init-param>
   </servlet>
-
-  <servlet-mapping>
-  	<servlet-name>ServletPrueba2</servlet-name>
-  	<url-pattern>/ServletPrueba2</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-  	<servlet-name>FormularioServlet</servlet-name>
-  	<url-pattern>/FormularioServlet</url-pattern>
-  </servlet-mapping>
-  
-  <servlet-mapping>
-  	<servlet-name>FS</servlet-name>
-  	<url-pattern>/FormularioFS</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>AlumnoServlet</servlet-name>
-  	<url-pattern>/alumnoservlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>AlumnoServlet</servlet-name>
-  	<url-pattern>/alumnoformulario</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>MobiliarioServlet</servlet-name>
-  	<url-pattern>/mobiliarioservlet</url-pattern>
-  </servlet-mapping>
   <servlet-mapping>
   	<servlet-name>UsuarioServlet</servlet-name>
   	<url-pattern>/UsuarioServlet</url-pattern>

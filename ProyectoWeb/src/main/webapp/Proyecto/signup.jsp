@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Alta de usuario</title>
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
 	rel="stylesheet"
@@ -12,7 +12,7 @@
 	crossorigin="anonymous">
 <script>
 	function actualizarCampos() {
-		var seleccion = document.getElementById("mueble").value;
+		var seleccion = document.getElementById("tipoUsuario").value;
 
 		// Oculta todos los campos primero
 		document.getElementById("tlfCorp").style.display = "none";
@@ -34,7 +34,7 @@
 </head>
 <body>
 	<div class="ml-3">
-		<form action="/ProyectoWeb/usuarioservlet" method="post">
+		<form action="/ProyectoWeb/Usuario" method="post">
 			<fieldset>
 				<legend>Datos personales:</legend>
 				Nombre: <br> <input id="nombreUsuario" type="text"
@@ -42,7 +42,13 @@
 					id="apellidosUsuario" type="text" name="apellidosUsuario"><br>
 				DNI: <br> <input id="dniUsuario" type="text" name="dniUsuario"><br>
 				Sexo: <br> <input id="sexoUsuario" type="text"
-					name="sexoUsuario"><br> 
+					name="sexoUsuario"><br><br> 
+					<select id="sexoUsuario" name="sexoUsuario">
+					<option value="0">Indique su sexo</option>
+					<option value="Masculino">Masculino</option>
+					<option value="Femenino">Femenino</option>
+					<option value="Otro">Otro</option>
+				</select><br>
 				Fecha de nacimiento: <br>
 				<input id="fechaNacimiento" type="date" name="fechaNacimiento">
 
@@ -56,8 +62,9 @@
 			</fieldset>
 
 			<fieldset>
+			<legend>Usuario:</legend>
 				<select id="tipoUsuario" name="tipo" onchange="actualizarCampos();">
-					<option value="0">Seleccione una opción</option>
+					<option value="0">Tipo de usuario</option>
 					<option value="ADMIN">Administrador</option>
 					<option value="USUARIO">Usuario</option>
 				</select>
@@ -69,31 +76,20 @@
 					Email corporativo: <input type="text" name="emailCorp"
 						placeholder="Introduce el email corporativo"><br>
 				</div>
-				<div id="tlfCorp" style="display: none;">
-					Teléfono Corporativo: <input type="text" name="estilo"
-						placeholder="Introduce el teléfono corporativo"><br>
-				</div>
 				<div id="perfilUsuario" style="display: none;">
 					<label for="perfilUsuario">Elija su perfil</label> 
 						<input type="radio" name="perfilUsuario" value="profesional">Profesional
 						<input type="radio" name="perfilUsuario" value="reciente">Reciente
 						<input type="radio" name="perfilUsuario" value="invitado">Invitado
-					<br>
-					
-				</div>
-
+				</div><br>
 				Usuario: <br> <input id="idCuenta" type="text" name="idCuenta"><br>
-				Contraseña: <br> <input id="contrasenia" type="text"
+				Contraseña: <br> <input id="contrasenia" type="password"
 					name="contrasena"><br>
 				<br>
 				<button type="submit">Enviar</button>
 			</fieldset>
 		</form>
 	</div>
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-		crossorigin="anonymous"></script>
 
 </body>
 </html>
