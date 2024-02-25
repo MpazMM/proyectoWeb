@@ -17,7 +17,7 @@
             text-decoration: none; /* Quitar el subrayado de los enlaces */
             color: black; /* Color del texto de los enlaces */
             background-color: lightgray; /* Fondo de los botones/enlaces */
-            border: none; /* Quitar el borde predeterminado de los botones */
+            border: 1px; /* Quitar el borde predeterminado de los botones */
             border-radius: 5px; /* Bordes redondeados */
         }
         #loginPopup {
@@ -38,7 +38,7 @@
     </style>
 </head>
 <body>
-
+<!-- <jsp:include page="Proyecto/recursos/cabecera.html"></jsp:include> -->
 <header>
     <h1>Bienvenido a esta página</h1>
     <button class="btn" id="loginBtn">Log In</button>
@@ -59,9 +59,7 @@
 	</form>
 </div>
 
-<footer>
-    <p>@Proyecto 2024</p>
-</footer>
+	<!-- <jsp:include page="Proyecto/recursos/piepagina.html"></jsp:include>-->
 
 <script>
     function toggleLoginPopup() {
